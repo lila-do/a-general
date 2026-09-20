@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hydra — Digital Tourist Guide for Students</title>
+<style>
+:root{
+  --navy:#0a3348;--sea:#117b8e;--sky:#e8f7f9;--sand:#f4e6c8;--gold:#d99b39;
+  --red:#a84249;--green:#477b65;--ink:#1b3540;--muted:#637984;--line:#cddfe4;
+  --white:#fff;--soft:#f8fcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#f4fafb;line-height:1.58}
+a{color:#0a7187}
+.wrap{max-width:1140px;margin:auto;padding:0 18px}
+.hero{
+ min-height:560px;display:flex;align-items:flex-end;color:white;position:relative;
+ background:
+ linear-gradient(180deg,rgba(3,28,41,.12),rgba(3,28,41,.88)),
+ url('https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Harbour_of_Hydra_island_%2843058393960%29.jpg/1280px-Harbour_of_Hydra_island_%2843058393960%29.jpg') center/cover;
+}
+.hero-inner{padding:76px 18px 36px;width:100%}
+.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.79rem;font-weight:900;color:#bceff3}
+h1{font-size:clamp(3rem,8vw,6rem);line-height:.92;margin:.4rem 0 1rem}
+.hero p{max-width:820px;font-size:1.13rem;color:#edf7f8}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.quick a{color:white;text-decoration:none;border:1px solid #ffffff66;background:#ffffff17;padding:9px 13px;border-radius:999px;font-weight:800}
+.quick a:hover,.quick a:focus{background:#ffffff2c;outline:2px solid #fff;outline-offset:2px}
+.credit{font-size:.72rem;color:#dcecef;margin-top:13px}
+nav{position:sticky;top:0;z-index:20;background:#ffffffef;border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+nav .wrap{display:flex;gap:5px;overflow:auto;padding-top:8px;padding-bottom:8px}
+nav a{white-space:nowrap;text-decoration:none;color:var(--navy);font-weight:800;padding:8px 10px;border-radius:999px}
+nav a:hover{background:var(--sky)}
+nav .quiz{background:var(--gold);color:#25333a}
+main{padding:18px 0 50px}
+.section{scroll-margin-top:78px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:23px;margin:18px 0;box-shadow:0 8px 28px #0a334810}
+.kicker{text-transform:uppercase;font-size:.77rem;letter-spacing:.1em;font-weight:900;color:var(--sea)}
+h2{font-size:1.9rem;color:var(--navy);margin:.25rem 0 .55rem}
+h3{color:var(--sea);margin:1rem 0 .45rem}
+.grid{display:grid;gap:14px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{border:1px solid var(--line);border-radius:15px;padding:15px;background:var(--soft)}
+.card strong,.card b{color:var(--navy)}
+.small{font-size:.91rem;color:var(--muted)}
+.tag{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--sky);color:#0b6878;font-size:.75rem;font-weight:900;margin-bottom:7px}
+.history{border-left:5px solid var(--gold)}.place{border-left:5px solid var(--sea)}.stay{border-left:5px solid var(--green)}.move{border-left:5px solid var(--red)}
+.callout{border-left:5px solid var(--gold);background:#fff7e6;border-radius:12px;padding:14px 15px;margin:14px 0}
+.note{border-left:5px solid var(--sea);background:#eef9fb;border-radius:12px;padding:14px 15px;margin:14px 0}
+.photo{border-radius:18px;overflow:hidden;border:1px solid var(--line);margin:15px 0;background:#dae8eb}
+.photo img{display:block;width:100%;height:auto;max-height:560px;object-fit:cover}
+.caption{background:#fff;padding:7px 10px;color:var(--muted);font-size:.74rem}
+.media{padding:0;overflow:hidden}.media img{display:block;width:100%;height:240px;object-fit:cover}.media .content{padding:15px}
+.timeline{display:grid;gap:10px}
+.trow{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start;border-bottom:1px solid var(--line);padding:10px 0}
+.tdate{font-weight:900;color:var(--navy)}
+.transport-box{background:linear-gradient(135deg,#edf8f9,#fff);border:1px solid var(--line);border-radius:15px;padding:15px}
+details{border:1px solid var(--line);border-radius:13px;margin:8px 0;background:#fbfeff}
+summary{cursor:pointer;padding:12px;font-weight:900;color:var(--navy)}
+details>div{padding:0 12px 12px}
+.answer{display:inline-block;border-radius:999px;padding:4px 8px;font-weight:900;background:#e9f4ec;color:#276142}
+.false{background:#faecec;color:#923841}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--sky);color:var(--navy)}
+.repo{background:#f9fcfd}
+footer{background:var(--navy);color:#fff;text-align:center;padding:30px 15px}.sig{color:#b9f1f2;font-weight:900}
+.back{position:fixed;right:14px;bottom:14px;background:var(--gold);color:#1d2930;text-decoration:none;font-weight:900;border-radius:999px;padding:9px 12px;box-shadow:0 6px 18px #0002}
+@media(max-width:840px){.two,.three{grid-template-columns:1fr}.trow{grid-template-columns:1fr}.hero{min-height:520px}.media img{height:230px}}
+@media print{nav,.back{display:none}.section{box-shadow:none}.hero{min-height:360px}}
+</style>
+</head>
+
+<body id="top">
+
+<header class="hero">
+ <div class="hero-inner wrap">
+  <div class="eyebrow">Argosaronic Gulf • Greece • Student Digital Guide</div>
+  <h1>HYDRA</h1>
+  <p>A car-free island with a powerful maritime past, stone mansions, a historic harbour and a central role in the Greek War of Independence.</p>
+  <div class="quick">
+   <a href="#location">📍 Location</a>
+   <a href="#history">⚓ History</a>
+   <a href="#places">🏛 Places of Interest</a>
+   <a href="#stay">🏨 Accommodation</a>
+   <a href="#transport">⛴ Transport</a>
+   <a href="#quiz">✅ Comprehension</a>
+   <a href="#vocabulary">📚 Vocabulary</a>
+  </div>
+  <div class="credit">Harbour of Hydra. Photo: dronepicr / Wikimedia Commons, CC BY 2.0.</div>
+ </div>
+</header>
+
+<nav>
+ <div class="wrap">
+  <a href="#location">Location</a><a href="#history">History</a><a href="#places">See</a>
+  <a href="#stay">Stay</a><a href="#transport">Transport</a><a href="#festival">Miaoulia</a>
+  <a class="quiz" href="#quiz">True / False</a><a href="#vocabulary">Vocabulary</a>
+ </div>
+</nav>
+
+<main class="wrap">
+
+<section class="section">
+ <div class="kicker">Welcome</div>
+ <h2>Why Hydra is special</h2>
+ <p>Hydra is one of the best-known islands of the Saronic Gulf, close enough to Athens to be reached easily by sea. Its town rises amphitheatrically around a picturesque harbour, with stone mansions climbing the rocky slopes. One of its most unusual features is the absence of ordinary cars and motorcycles: visitors move mainly on foot, while donkeys, mules and boats remain part of everyday island transport.</p>
+ <div class="callout"><b>Language-learning focus:</b> This guide uses the information from the Hydra project text as the basis for its history and comprehension activities, while adding current visitor information for transport, accommodation and sightseeing.</div>
+</section>
+
+<section id="location" class="section">
+ <div class="kicker">01 • Where is Hydra?</div>
+ <h2>Location</h2>
+ <div class="grid two">
+  <div class="card">
+   <span class="tag">Argosaronic / Saronic Gulf</span>
+   <p>Hydra is a Greek island in the Saronic Gulf, south of Athens and a relatively short sea journey from the port of Piraeus. The main town and harbour are on the island’s northern side.</p>
+   <p>The landscape is rocky and mountainous, with stone-built settlements, coastal paths and views over the Aegean.</p>
+  </div>
+  <div class="card">
+   <span class="tag">Name & landscape</span>
+   <p>The school project text explains that Hydra was once said to have been covered with forests and that its name means a place with plenty of water. Today, however, much of the island appears grey, dry and rocky.</p>
+  </div>
+ </div>
+</section>
+
+<section id="history" class="section">
+ <div class="kicker">02 • From a dry island to a maritime power</div>
+ <h2>Hydra’s history — based on the project text</h2>
+
+ <div class="timeline">
+  <div class="trow"><div class="tdate">Early settlement</div><div>Because agriculture was difficult on the infertile island, the first inhabitants turned towards the sea and began building ships.</div></div>
+  <div class="trow"><div class="tdate">1715</div><div>According to the text, when the Turks captured Hydra, they paid little attention to the infertile island.</div></div>
+  <div class="trow"><div class="tdate">18th century</div><div>The Hydriots developed a strong fleet and gradually became an important merchant-marine community.</div></div>
+  <div class="trow"><div class="tdate">By the 19th century</div><div>Hydra had become wealthy and powerful at sea. The project text states that it had acquired autonomous status and that Hydriot ships held a monopoly in Mediterranean food supplies.</div></div>
+  <div class="trow"><div class="tdate">1821</div><div>The Hydriots were not the first to begin the Greek War of Independence, but when they joined, their ships made up a very large part of the Greek revolutionary fleet. The text states that Hydriot ships represented two-thirds of the whole Greek fleet.</div></div>
+  <div class="trow"><div class="tdate">Revolution</div><div>Hydra also offered its people and resources. Admiral Andreas Miaoulis became a famous commander of the Greek fleet. The school text also presents Georgios Koundouriotis as a major political figure in the newly emerging Greek state.</div></div>
+ </div>
+
+ <div class="photo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Polaka.jpg/330px-Polaka.jpg" alt="Hydriot merchant sailing ship">
+  <div class="caption">A Hydriot polacca built on Hydra in 1816 — a visual reminder of the island’s maritime tradition. Wikimedia Commons.</div>
+ </div>
+
+ <div class="note"><b>Historical-reading skill:</b> When answering the comprehension questions below, use the information in the school project text. In broader historical research, some simplified school-text claims may need to be checked against specialist historical sources.</div>
+</section>
+
+<section id="places" class="section">
+ <div class="kicker">03 • What to see</div>
+ <h2>Places of interest</h2>
+
+ <div class="grid two">
+  <div class="card media">
+   <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/HYDRA_HISTORICAL_MUSEUM_3473.JPG/960px-HYDRA_HISTORICAL_MUSEUM_3473.JPG" alt="Historical Archives Museum of Hydra">
+   <div class="content">
+    <span class="tag">Essential visit</span>
+    <h3>Historical Archives – Museum of Hydra</h3>
+    <p>The museum is central to the school text. Its collections connect visitors with Hydra’s maritime and revolutionary history. Exhibits include Hydriot costumes, objects from the War of Independence, historical documents, maps, navigation instruments, carved wooden ship figureheads, ship models, lithographs and paintings connected with the ships and fighters of 1821.</p>
+    <p>The museum also preserves the embalmed heart of Admiral Andreas Miaoulis.</p>
+    <div class="small">Photo: Macedon-40 / Wikimedia Commons, CC BY 3.0.</div>
+   </div>
+  </div>
+
+  <div class="card place"><span class="tag">Historic mansion</span><h3>Lazaros Koundouriotis Historical Mansion</h3><p>Built during Hydra’s period of naval prosperity, the mansion stands on the western side of the harbour. It is connected with one of the island’s important political and shipping families and today functions as a museum.</p></div>
+
+  <div class="card place"><span class="tag">Harbour</span><h3>Hydra Town & harbour</h3><p>Walk along the waterfront and through the narrow stone lanes. The harbour is the visual and social centre of the island and reflects Hydra’s long relationship with shipping.</p></div>
+
+  <div class="card place"><span class="tag">Kaminia</span><h3>The Red House / Miaoulis residence</h3><p>The former residence of Andreas Miaoulis at the small harbour of Kaminia dates from 1786 and is associated with exhibitions and Hydra’s artistic life.</p></div>
+
+  <div class="card place"><span class="tag">Religious heritage</span><h3>Monastery of Prophet Elias</h3><p>A rewarding destination for walkers. The island’s paths also provide wide views of the rocky landscape and sea.</p></div>
+
+  <div class="card place"><span class="tag">Contemporary culture</span><h3>Art spaces</h3><p>Hydra also has a strong modern art identity, with venues such as the Melina Mercouri Cultural Hall, the DESTE Foundation project space and the Tompazis Mansion.</p></div>
+ </div>
+</section>
+
+<section id="stay" class="section">
+ <div class="kicker">04 • Where to stay</div>
+ <h2>Accommodation</h2>
+ <p>Hydra offers small hotels, guesthouses, apartments and traditional stone houses. The best area depends on how close you want to be to the harbour and how much walking you are comfortable with.</p>
+ <div class="grid three">
+  <div class="card stay"><b>Hydra Town / Harbour</b><p>Best for first-time visitors, ferry access, cafés, museums and evening walks. It is usually the most convenient choice if you are carrying luggage.</p></div>
+  <div class="card stay"><b>Kaminia</b><p>A quieter area west of the main harbour, still within walking distance for many visitors. Good for a more relaxed atmosphere.</p></div>
+  <div class="card stay"><b>Further from the port</b><p>Traditional rooms and houses can offer peace and views, but remember that Hydra is steep in places and ordinary car transfers are not available.</p></div>
+ </div>
+ <div class="callout"><b>Before booking:</b> check the exact distance from the port, the number of steps, luggage-transfer arrangements, cancellation rules and current prices.</div>
+</section>
+
+<section id="transport" class="section">
+ <div class="kicker">05 • Getting there & moving around</div>
+ <h2>Transport</h2>
+
+ <div class="grid two">
+  <div class="transport-box">
+   <h3>From Athens / Piraeus</h3>
+   <p>High-speed passenger ferries operate between Piraeus and Hydra. Journey times and frequencies depend on the service and season, so travellers should check the current timetable before departure.</p>
+  </div>
+  <div class="transport-box">
+   <h3>Via the Peloponnese</h3>
+   <p>Another option is to travel by road from Athens towards the eastern Peloponnese and Metochi, then continue to Hydra by ferry, boat or water taxi. Visit Greece lists the road journey to Metochi at about 2 hours 25 minutes before the sea crossing.</p>
+  </div>
+ </div>
+
+ <div class="photo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Donkey_at_the_Harbor%2C_Hydra_Greece_%289665636651%29.jpg/1280px-Donkey_at_the_Harbor%2C_Hydra_Greece_%289665636651%29.jpg" alt="Donkey at Hydra harbour">
+  <div class="caption">Hydra’s car-free transport culture. Photo: Sharon Mollerus / Wikimedia Commons, CC BY 2.0.</div>
+ </div>
+
+ <h3>On the island</h3>
+ <div class="grid three">
+  <div class="card move"><b>On foot</b><p>Walking is the main way to explore Hydra Town and many nearby areas. Wear comfortable shoes: streets and paths can be steep.</p></div>
+  <div class="card move"><b>Donkeys & mules</b><p>Pack animals remain part of Hydra’s traditional transport system, especially for moving goods and luggage.</p></div>
+  <div class="card move"><b>Water taxis & boats</b><p>Boats connect the harbour with coastal areas and can be useful for beaches or locations that are inconvenient to reach on foot.</p></div>
+ </div>
+ <div class="note"><b>What makes Hydra unusual?</b> Ordinary motor vehicles are prohibited, so there is no normal car-and-motorcycle traffic in Hydra Town. This is one reason the island feels very different from many other tourist destinations.</div>
+</section>
+
+<section id="festival" class="section">
+ <div class="kicker">06 • Memory and celebration</div>
+ <h2>Miaoulia</h2>
+ <p>The school project text describes <b>Miaoulia</b> as a major festival held in Hydra around 20 June in memory of Admiral Andreas Miaoulis. It describes a Greek Air Force plane dropping a wreath into the sea as part of the commemoration.</p>
+ <p>The text ends by encouraging visitors to “communicate with history”: it points to Miaoulis’ cross and, most importantly, his preserved heart in the Historical Archives – Museum of Hydra as a powerful connection between the present and the island’s revolutionary past.</p>
+</section>
+
+<section id="quiz" class="section">
+ <div class="kicker">07 • Reading comprehension</div>
+ <h2>True or False? — The Hydra Project</h2>
+ <p>Answer from the information in the project text. Tap each statement to reveal the answer and explanation.</p>
+
+ <details><summary>1. Hydra has always been a dry island with no forests.</summary><div><span class="answer false">FALSE</span><p>The text says Hydra was once said to have been covered with forests.</p></div></details>
+ <details><summary>2. Because agriculture was impossible, people started building ships.</summary><div><span class="answer">TRUE</span><p>The text links the island’s poor agricultural possibilities with the development of shipbuilding.</p></div></details>
+ <details><summary>3. The island could offer a lot, and that’s why the Turks settled on the island.</summary><div><span class="answer false">FALSE</span><p>The text says the Turks ignored the infertile island after capturing it in 1715.</p></div></details>
+ <details><summary>4. The Hydriots became important merchants by the 19th century.</summary><div><span class="answer">TRUE</span><p>The text describes Hydra as rich and a great maritime power by the 19th century.</p></div></details>
+ <details><summary>5. Hydriots supplied the Turks with food products. They had the monopoly in the Mediterranean Sea.</summary><div><span class="answer false">FALSE</span><p>The text says Hydriot ships had a monopoly of food supplies in the Mediterranean, but it does not say that this meant supplying the Turks.</p></div></details>
+ <details><summary>6. Hydriots were the first to start the Greek War of Independence.</summary><div><span class="answer false">FALSE</span><p>The text explicitly says they were not the first to start the Revolution.</p></div></details>
+ <details><summary>7. The Hydriot ships made up the whole Greek fleet.</summary><div><span class="answer false">FALSE</span><p>The text says they made up two-thirds of the Greek fleet, not all of it.</p></div></details>
+ <details><summary>8. Admiral Andreas Miaoulis became the first Prime Minister of the New Greek State.</summary><div><span class="answer false">FALSE</span><p>In the project text, Miaoulis is presented as commander of the Greek fleet, while Georgios Koundouriotis is the political figure mentioned in connection with the new state.</p></div></details>
+ <details><summary>9. You can find figureheads and paintings of the ships of the Greek Revolution in the Museum of Hydra.</summary><div><span class="answer">TRUE</span><p>The text specifically mentions figureheads and paintings of the revolutionary ships among the museum exhibits.</p></div></details>
+ <details><summary>10. Nothing is left to see of Admiral Andreas Miaoulis today.</summary><div><span class="answer false">FALSE</span><p>The project text mentions Miaoulis’ cross and his preserved heart in the Museum of Hydra.</p></div></details>
+</section>
+
+<section id="vocabulary" class="section repo">
+ <div class="kicker">08 • Vocabulary repository</div>
+ <h2>Essential vocabulary</h2>
+ <p>These words come from the pre-reading exercise and the Hydra text. Each item includes a simple meaning and a new example.</p>
+
+ <table>
+  <tr><th>Word</th><th>Meaning</th><th>Extra example</th></tr>
+  <tr><td>transport</td><td>the movement of people or goods from one place to another</td><td>Public transport is limited on a car-free island.</td></tr>
+  <tr><td>industry</td><td>the work of producing goods or providing a particular type of economic activity</td><td>Shipping became an important industry for the island.</td></tr>
+  <tr><td>allow</td><td>to let someone do something; not to prevent it</td><td>The rules do not allow ordinary cars in Hydra Town.</td></tr>
+  <tr><td>vehicle</td><td>a machine used to carry people or goods, such as a car, bus or truck</td><td>Most motor vehicles are not used on Hydra.</td></tr>
+  <tr><td>traffic</td><td>the movement of cars, buses and other vehicles on roads</td><td>Visitors enjoy the quiet streets because there is almost no normal road traffic.</td></tr>
+  <tr><td>steep</td><td>rising or falling sharply</td><td>The path to the monastery can be steep.</td></tr>
+  <tr><td>unusual</td><td>different from what is normal or common</td><td>A tourist island without ordinary cars is unusual.</td></tr>
+  <tr><td>port</td><td>a town or place by the sea where ships arrive and leave</td><td>The ferry arrived at Hydra port in the morning.</td></tr>
+  <tr><td>dry</td><td>having little or no water or moisture</td><td>The rocky landscape can look very dry in summer.</td></tr>
+  <tr><td>means</td><td>a method or way of doing something</td><td>Walking is the main means of transport in Hydra Town.</td></tr>
+  <tr><td>agriculture</td><td>the activity of farming and producing crops or animals</td><td>The island’s landscape made large-scale agriculture difficult.</td></tr>
+  <tr><td>settle</td><td>to begin living permanently in a place</td><td>Families settled on the island and turned towards the sea.</td></tr>
+  <tr><td>infertile</td><td>land that is not good for growing crops</td><td>The text describes Hydra as an infertile island.</td></tr>
+  <tr><td>fleet</td><td>a group of ships operating together or belonging to one country or organisation</td><td>Hydra developed a powerful merchant fleet.</td></tr>
+  <tr><td>merchant marine</td><td>commercial ships and the people who operate them</td><td>Hydra became known for its merchant marine.</td></tr>
+  <tr><td>autonomous</td><td>having a degree of self-government or independence</td><td>The text says Hydra acquired autonomous status.</td></tr>
+  <tr><td>monopoly</td><td>complete or dominant control of a market, service or supply</td><td>The company once held a monopoly on the route.</td></tr>
+  <tr><td>commander</td><td>a person who is in charge of a military or naval force</td><td>Miaoulis became an important naval commander.</td></tr>
+  <tr><td>figurehead</td><td>a carved figure traditionally placed on the front of a ship</td><td>The museum displays wooden figureheads from historic ships.</td></tr>
+  <tr><td>costume</td><td>traditional or special clothing</td><td>Visitors can see historic Hydriot costumes in museum collections.</td></tr>
+  <tr><td>exhibit</td><td>an object displayed in a museum or exhibition</td><td>The ship model is one of the museum exhibits.</td></tr>
+  <tr><td>wreath</td><td>a ring-shaped arrangement of flowers or leaves used in ceremonies</td><td>A wreath was placed at the memorial during the ceremony.</td></tr>
+  <tr><td>maritime</td><td>connected with the sea, ships or shipping</td><td>Hydra has a strong maritime tradition.</td></tr>
+  <tr><td>heritage</td><td>the history, traditions and cultural achievements passed down from earlier generations</td><td>The museum protects Hydra’s maritime heritage.</td></tr>
+ </table>
+</section>
+
+<section class="section">
+ <div class="kicker">Sources & learning note</div>
+ <h2>For further exploration</h2>
+ <p>The school project supplied by the teacher is the basis for the historical reading-comprehension section. Current visitor information was checked against official or institutional sources including Visit Greece, the Historical Archives – Museum of Hydra, the Municipality of Hydra and the National Historical Museum.</p>
+ <ul>
+  <li><a href="https://www.visitgreece.gr/en/islands/saronic-islands/hydra" target="_blank">Visit Greece — Hydra</a></li>
+  <li><a href="https://gak-ydras-new.att.sch.gr/" target="_blank">Historical Archives – Museum of Hydra</a></li>
+  <li><a href="https://nhmuseum.gr/multimedia/panoramas/intro_en/index.html" target="_blank">Lazaros Koundouriotis Historical Mansion</a></li>
+ </ul>
+ <p class="small">Ferry timetables, accommodation prices and opening hours change seasonally. Check current information before travelling.</p>
+</section>
+
+</main>
+
+<footer>
+ <div><b>Hydra — Digital Tourist Guide for Students</b></div>
+ <div class="sig">Evangelia Domvrou - Teacher of English Language and Literature</div>
+</footer>
+
+<a class="back" href="#top" aria-label="Back to top">↑</a>
+</body>
+</html>
