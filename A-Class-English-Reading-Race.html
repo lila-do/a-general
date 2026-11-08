@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#091a31" />
+    <meta name="description" content="A four-team B2 English reading race inspired by two texts about sun safety and Hydra." />
+    <title>A-Class English | The Great Reading Race</title>
+    <style>
+/* EDIT STYLES BELOW */
+:root{color-scheme:dark;--night:#081a30;--night-2:#102744;--cream:#f8f8f3;--ink:#12233a;--muted:#657185;--yellow:#ffdc69;--line:rgba(255,255,255,.14)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 86% 9%,rgba(53,144,175,.17),transparent 29%),radial-gradient(circle at 10% 34%,rgba(250,168,91,.10),transparent 31%),#081a30;color:white;font-family:"Trebuchet MS",Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,black,transparent 92%)}
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid #ffcd60;outline-offset:3px}
+button:disabled{cursor:not-allowed;opacity:.65}
+[hidden]{display:none!important}
+.page-shell{max-width:1600px;margin:auto;padding:0 clamp(16px,3.2vw,54px)}
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:96px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:13px;white-space:nowrap}
+.brand-mark{height:46px;width:46px;border-radius:14px;background:var(--yellow);color:#09213b;display:flex;justify-content:center;align-items:center;font-size:29px;font-weight:1000;position:relative;box-shadow:0 8px 25px rgba(255,220,105,.18)}
+.brand-mark span{position:absolute;font-size:12px;right:5px;top:3px;color:#e37a5f}
+.brand-type{display:flex;flex-direction:column;gap:4px}.brand-type strong{font-size:15px;letter-spacing:.18em}.brand-type small{font-size:9px;letter-spacing:.23em;color:#91a9bc;font-weight:900}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.utility-button{background:rgba(255,255,255,.065);color:#eaf5ff;border:1px solid rgba(255,255,255,.15);padding:11px 14px;border-radius:11px;font-size:12px;font-weight:850;letter-spacing:.015em;transition:background .15s,transform .15s}
+.utility-button:hover{background:rgba(255,255,255,.13);transform:translateY(-1px)}.utility-button span{font-size:16px;color:#ffd66e;margin-right:4px;vertical-align:-1px}.reset-button{border-color:rgba(255,209,141,.24)}
+.hero{position:relative;display:flex;justify-content:space-between;align-items:center;min-height:284px;gap:12px;padding:41px 0 32px;overflow:hidden}
+.hero-copy{position:relative;z-index:1;max-width:860px}.eyebrow{display:flex;align-items:center;gap:9px;color:#c2d7e5;font-size:10px;font-weight:1000;letter-spacing:.2em}.eyebrow-dot,.pulse-dot{display:inline-block;width:8px;height:8px;background:#a5eeaf;border-radius:50%;box-shadow:0 0 0 5px rgba(165,238,175,.10)}.eyebrow-star{color:#ffdf71;margin-left:5px}
+h1,h2,p{margin-top:0}.hero h1{font-family:Impact,"Arial Black",ui-sans-serif,sans-serif;font-size:clamp(49px,5.6vw,92px);font-weight:950;line-height:.99;letter-spacing:.018em;margin:18px 0 15px;text-wrap:balance;text-shadow:0 8px 30px rgba(0,0,0,.17)}.hero h1 span{color:var(--yellow);display:inline-block}
+.hero p{max-width:735px;font-size:15px;line-height:1.7;color:#d1deeb;margin-bottom:19px}.hero p strong{color:white}.topic-pills{display:flex;gap:8px;flex-wrap:wrap}.topic-pills span{padding:9px 12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);border-radius:100px;font-size:10px;font-weight:900;letter-spacing:.09em}
+.hero-art{width:300px;height:226px;flex:0 0 300px;position:relative;transform:rotate(-5deg)}.sun-disc,.sea-disc{position:absolute;border-radius:50%;display:grid;place-items:center}.sun-disc{width:171px;height:171px;background:#ffd66c;right:96px;top:4px;box-shadow:0 0 0 13px rgba(255,214,108,.10),0 0 0 31px rgba(255,214,108,.035)}.sun-disc span{font-size:105px;color:#f9a853;line-height:1;transform:rotate(16deg)}.sea-disc{width:139px;height:139px;right:10px;top:73px;background:#55bed1;border:9px solid #09243e;box-shadow:0 0 0 6px #55bed1}.sea-disc span{font-size:73px;color:white;transform:rotate(13deg)}.hero-ribbon{position:absolute;left:2px;bottom:15px;z-index:2;transform:rotate(-5deg);background:#f89c79;border:2px solid #09243e;color:#09243e;border-radius:8px;padding:10px 15px;font-size:13px;font-weight:1000;letter-spacing:.1em;box-shadow:6px 6px 0 rgba(0,0,0,.26)}.hero-spark{position:absolute;color:#ffdf74;font-size:31px}.hero-spark-one{left:46px;top:7px}.hero-spark-two{right:1px;top:19px;font-size:23px}
+.game-intro{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:10px 0 18px}.section-label{font-size:10px;letter-spacing:.23em;color:#93b1c7;font-weight:1000}.game-intro h2{font-size:30px;font-weight:1000;letter-spacing:-.06em;margin:3px 0 0}.game-intro h2 em{color:var(--yellow);font-style:normal}.live-stats{display:flex;align-items:center;gap:16px}.live-tag{font-size:10px;font-weight:950;letter-spacing:.13em;color:#bcddcc;background:rgba(77,186,129,.08);border:1px solid rgba(113,224,165,.22);padding:9px 12px;border-radius:100px;white-space:nowrap}.live-tag .pulse-dot{width:6px;height:6px;margin-right:6px;vertical-align:1px}.answered-stat{font-size:12px;color:#a3b6c9;white-space:nowrap}.answered-stat strong{font-size:25px;color:white;margin-right:3px}
+.race-board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch}
+.lane{--accent:#fa916a;--tint:#fff0e9;background:var(--cream);color:var(--ink);border-radius:20px;min-width:0;overflow:hidden;box-shadow:0 18px 32px rgba(0,0,0,.18);display:flex;flex-direction:column;border:2px solid rgba(255,255,255,.75);position:relative}
+.lane::before{content:"";height:6px;background:var(--accent);display:block;position:absolute;top:0;left:0;right:0}
+.lane[data-team="1"]{--accent:#42b7c5;--tint:#e4f8f9}.lane[data-team="2"]{--accent:#a287eb;--tint:#f0eafa}.lane[data-team="3"]{--accent:#edae46;--tint:#fff4df}
+.lane-header{padding:24px 20px 15px;display:flex;align-items:center;justify-content:space-between;gap:7px}.lane-title{display:flex;align-items:center;gap:9px;min-width:0}.team-avatar{border-radius:14px;width:45px;height:45px;display:grid;place-items:center;background:var(--tint);border:1px solid color-mix(in srgb,var(--accent) 35%,white);font-size:24px;flex:0 0 45px}.team-title-block{min-width:0;flex:1}.team-number{font-size:9px;letter-spacing:.15em;font-weight:950;color:#718091;display:block;margin-bottom:3px}.team-name{font-size:15px;font-weight:1000;color:#15273e;width:100%;min-width:0;border:1px solid transparent;background:transparent;outline:none;padding:1px 2px;border-radius:4px;text-overflow:ellipsis}.team-name:hover,.team-name:focus{background:white;border-color:#d3dae2}.score-badge{text-align:center;background:var(--tint);border-radius:13px;padding:8px;min-width:49px;flex:0 0 auto}.score-badge strong{display:block;font-size:25px;line-height:1;color:#122c41;font-family:Impact,"Arial Black",sans-serif;letter-spacing:-.02em}.score-badge span{font-size:9px;font-weight:950;color:#657182}
+.track-section{padding:0 20px 14px}.track-topline{display:flex;justify-content:space-between;align-items:center;color:#7b8996;font-size:9px;font-weight:1000;letter-spacing:.12em;margin-bottom:10px}.track-topline .finish{color:#526477}.track-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}.track-tile{height:30px;border:1px solid #dfe4e8;background:#eaeef0;display:grid;place-items:center;border-radius:7px;color:#9ca6b1;font-size:10px;font-weight:950;position:relative}.track-tile.done{background:var(--accent);color:#09253d;border-color:var(--accent)}.track-tile.done::after{content:"✓";font-size:13px;position:absolute}.track-tile.done>span{opacity:0}.track-tile.current{background:white;color:#193148;border:2px solid var(--accent);box-shadow:0 0 0 3px var(--tint);animation:tilePulse 1.7s ease-in-out infinite}.track-tile.complete{background:#d5f5e3;border-color:#82d9a7;color:#246947}
+@keyframes tilePulse{50%{box-shadow:0 0 0 5px var(--tint)}}
+.question-zone{padding:0 15px 12px;flex:1;display:flex;flex-direction:column}.question-card{display:flex;flex-direction:column;background:white;border:1px solid #e7e9ed;box-shadow:0 4px 12px rgba(17,40,64,.04);border-radius:15px;padding:15px;flex:1;min-height:318px}.q-meta{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:11px}.q-category{font-size:9px;letter-spacing:.09em;font-weight:1000;background:var(--tint);color:#334861;padding:6px 8px;border-radius:6px}.q-count{font-size:10px;white-space:nowrap;color:#7e8b99;font-weight:950}.q-topic{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#8392a1;margin-bottom:7px;font-weight:900}.question-text{font-weight:950;font-size:clamp(14px,1.12vw,17px);line-height:1.35;color:#142b44;margin-bottom:13px;min-height:62px;overflow-wrap:anywhere}.answer-group{display:flex;flex-direction:column;gap:8px;margin-top:auto}.answer-btn{color:#263a52;border:1.5px solid #dee5e9;border-radius:11px;background:#fafbfc;min-height:56px;display:flex;gap:10px;align-items:center;text-align:left;padding:9px 10px;font-size:12px;line-height:1.35;font-weight:850;transition:border-color .13s,background .13s,transform .13s;overflow-wrap:anywhere}.answer-btn:hover:not(:disabled){background:var(--tint);border-color:var(--accent);transform:translateY(-1px)}.answer-letter{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border-radius:8px;background:#e7edf1;color:#17334a;font-weight:1000;font-size:13px}.answer-btn.is-correct{background:#e0f7e9;border-color:#47bd7c;color:#14633c}.answer-btn.is-correct .answer-letter{background:#41b977;color:white}.answer-btn.is-wrong{background:#ffeded;border-color:#ed7979;color:#962e36}.answer-btn.is-wrong .answer-letter{background:#ea7278;color:white}.answer-btn:disabled{opacity:1}.feedback{margin-top:10px;padding:9px 10px;background:var(--tint);color:#263d54;border-radius:8px;font-size:11px;line-height:1.35;font-weight:750}.feedback strong{display:block;font-size:12px;margin-bottom:2px}.feedback.good{background:#e4f8e9;color:#21613c}.feedback.bad{background:#fff0ec;color:#943c3c}.question-card.finished{justify-content:center;align-items:center;text-align:center;background:linear-gradient(160deg,#f0fff5,#fff)}.finish-medal{font-size:58px;margin-bottom:9px}.finished h3{font-size:22px;margin:0 0 8px;color:#206242}.finished p{color:#56736a;font-size:13px;line-height:1.5;margin:0}.question-card.frozen{opacity:.68}
+.lane-foot{display:flex;align-items:center;justify-content:space-between;padding:13px 20px 16px;border-top:1px dashed #dce0e5;gap:5px}.lane-foot-label{font-size:9px;font-weight:1000;letter-spacing:.12em;color:#8492a0}.lane-foot-number{font-size:13px;font-weight:1000;color:#20374f}.mistakes-label{font-size:10px;color:#8492a0}.mistakes-label span{font-weight:950;color:#516477}
+.below-board{display:flex;align-items:center;gap:14px;margin:19px 0 38px;background:rgba(255,255,255,.055);border:1px solid var(--line);padding:14px 17px;border-radius:13px}.tip-icon{font-size:25px}.below-board p{margin:0;flex:1;font-size:12px;line-height:1.65;color:#b6cada}.below-board strong{color:white}.text-button{color:#ffe17d;background:none;border:none;padding:0;text-decoration:underline;font-weight:900}.fullscreen-button{color:#e4f0ff;font-weight:850;font-size:12px;padding:9px 13px;border-radius:9px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.055);white-space:nowrap}.fullscreen-button:hover{background:rgba(255,255,255,.13)}
+.site-footer{border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;padding:25px 0 35px;font-size:11px;color:#91a7ba}.site-footer span{font-size:10px;letter-spacing:.13em;font-weight:900}.site-footer span span{color:#fbdc74}.site-footer strong{color:#c4d7e5;font-weight:750;text-align:right}
+body.projection-mode .site-header{min-height:67px}
+body.projection-mode .hero{display:none}
+body.projection-mode .game-intro{margin:15px 0 12px}
+body.projection-mode .game-intro h2{font-size:26px}
+body.projection-mode .lane-header{padding-top:17px;padding-bottom:11px}
+body.projection-mode .track-section{padding-bottom:9px}
+body.projection-mode .track-tile{height:27px}
+body.projection-mode .question-card{min-height:282px}
+body.projection-mode .question-text{min-height:55px}
+body.projection-mode .below-board{margin-top:12px}
+.modal-dialog{background:transparent;padding:0;border:0;max-width:min(600px,calc(100vw - 32px));width:100%;color:#182c42;box-shadow:0 35px 100px rgba(0,0,0,.42)}.modal-dialog::backdrop{background:rgba(3,18,34,.82);backdrop-filter:blur(7px)}.dialog-inner{position:relative;border-radius:23px;background:#fcfcf7;padding:34px 38px 32px;max-height:calc(100vh - 40px);overflow:auto}.modal-close{position:absolute;right:20px;top:20px;border:0;background:#edf1f3;border-radius:9px;width:35px;height:35px;color:#30465b;font-weight:900}.modal-kicker{display:block;font-size:11px;color:#7c739c;letter-spacing:.17em;font-weight:1000;margin-bottom:7px}.dialog-inner h2{font-family:Impact,"Arial Black",sans-serif;font-size:44px;letter-spacing:.01em;line-height:1;margin:0 0 22px}.dialog-inner h2 em{font-style:normal;color:#e88d64}.rules-list{padding:0;margin:0;list-style:none}.rules-list li{display:flex;gap:14px;margin:16px 0}.rules-list li>span{background:#e8f3f5;color:#237e8a;width:34px;height:34px;display:grid;place-items:center;flex:0 0 auto;border-radius:9px;font-size:12px;font-weight:1000}.rules-list strong{display:block;font-size:14px}.rules-list p{font-size:12px;line-height:1.6;color:#627284;margin:3px 0}.rule-footnote{background:#fff3d3;border-radius:10px;padding:13px;font-size:12px;line-height:1.55;margin:20px 0}.primary-button,.secondary-button{border:0;border-radius:11px;padding:12px 19px;font-weight:1000;font-size:13px}.primary-button{background:#ffce5f;color:#102b43;box-shadow:0 3px 0 #e4ae37}.primary-button:hover{background:#ffdc83}.secondary-button{background:#e7edf1;color:#2d455c}.secondary-button:hover{background:#d9e5eb}
+.talk-intro{color:#687889;font-size:13px;line-height:1.7}.talk-card{margin:20px 0 18px;border-radius:17px;background:#102f4d;color:white;padding:25px;min-height:214px;display:flex;flex-direction:column;justify-content:space-between}.talk-card-top{display:flex;justify-content:space-between;gap:10px;color:#80e3db;font-size:10px;font-weight:1000;letter-spacing:.13em}.talk-card p{font-size:21px;line-height:1.43;font-weight:900;margin:22px 0 0}.talk-controls{display:flex;justify-content:space-between;gap:10px}
+.winner-overlay{position:fixed;inset:0;z-index:50;background:rgba(2,15,30,.91);display:grid;place-items:center;padding:20px;overflow:auto;backdrop-filter:blur(12px)}.winner-card{position:relative;z-index:2;border:2px solid #ffe187;max-width:610px;width:100%;text-align:center;background:radial-gradient(circle at 50% -5%,#3c5b69,#122a45 51%,#0e213a);padding:35px 30px 32px;border-radius:25px;box-shadow:0 0 90px rgba(255,218,96,.24);animation:winnerPop .4s ease-out}.victory-kicker{font-size:11px;letter-spacing:.22em;color:#ffe28b;font-weight:1000}.trophy{font-size:93px;filter:drop-shadow(0 14px 13px rgba(0,0,0,.27));margin:4px 0 5px;animation:trophyBounce 1.7s ease-in-out infinite}.winner-card h2{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(40px,6.5vw,64px);line-height:1.02;letter-spacing:.025em;margin:0 0 15px}.winner-card h2 em{font-style:normal;color:#ffdb70}.winner-name{display:inline-block;background:#ffdc70;color:#183249;padding:12px 28px;transform:rotate(-2deg);font-size:25px;font-weight:1000;border-radius:7px;box-shadow:5px 5px 0 rgba(0,0,0,.25);max-width:100%;overflow-wrap:anywhere}.winner-card>p{font-size:14px;line-height:1.6;color:#c1d5e2;margin:22px auto 19px;max-width:420px}.final-scores{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:0 0 26px}.final-score{font-size:11px;color:#d5e8f5;border:1px solid rgba(255,255,255,.2);border-radius:9px;padding:8px 10px;background:rgba(255,255,255,.07)}.final-score strong{font-size:13px;color:white}.winner-buttons{display:flex;gap:10px;justify-content:center}.winner-buttons .secondary-button{background:#36516a;color:white}.confetti-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none}.confetti-piece{position:absolute;top:-30px;width:11px;height:20px;animation:confettiFall 3.8s linear infinite;opacity:.95}
+@keyframes confettiFall{to{transform:translate3d(120px,110vh,0) rotate(820deg)}}@keyframes winnerPop{from{transform:scale(.87);opacity:0}to{transform:scale(1);opacity:1}}@keyframes trophyBounce{50%{transform:translateY(-8px) rotate(4deg)}}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:1250px){.hero-art{flex-basis:220px;width:220px;transform:scale(.83) rotate(-5deg);transform-origin:right center;margin-left:-40px}.hero h1{font-size:clamp(50px,5.6vw,72px)}.lane-header{padding-left:14px;padding-right:14px}.track-section{padding-left:14px;padding-right:14px}.lane-foot{padding-left:14px;padding-right:14px}.team-avatar{width:40px;height:40px;flex-basis:40px;font-size:21px}.team-name{font-size:13px}.score-badge{min-width:43px;padding:7px}.question-zone{padding-left:11px;padding-right:11px}.question-card{padding:12px}.question-text{font-size:14px}}
+@media(max-width:1000px){.site-header{align-items:flex-start;padding:18px 0;flex-direction:column;gap:15px}.top-actions{justify-content:flex-start}.hero-art{display:none}.hero{min-height:unset;padding:37px 0 30px}.race-board{grid-template-columns:repeat(2,minmax(0,1fr))}.question-text{font-size:17px}.question-card{min-height:295px}.team-name{font-size:16px}.lane-header,.track-section,.lane-foot{padding-left:20px;padding-right:20px}.question-zone{padding-left:15px;padding-right:15px}.question-card{padding:17px}}
+@media(max-width:640px){.page-shell{padding:0 14px}.site-header{min-height:unset}.brand-mark{height:41px;width:41px}.brand-type strong{font-size:13px}.top-actions{gap:6px}.utility-button{font-size:11px;padding:9px 10px}.hero{padding:30px 0 22px}.hero h1{font-size:clamp(45px,11.5vw,70px)}.hero p{font-size:13px}.eyebrow{font-size:9px;letter-spacing:.13em}.topic-pills span{font-size:9px;padding:7px 10px}.game-intro{align-items:flex-start;flex-direction:column;margin-top:9px}.live-stats{width:100%;justify-content:space-between}.race-board{grid-template-columns:1fr;gap:16px}.question-card{min-height:280px}.question-text{min-height:0}.lane-header{padding-top:19px}.track-grid{gap:8px}.track-tile{height:35px}.below-board{flex-wrap:wrap}.below-board .fullscreen-button{margin-left:39px}.site-footer{flex-direction:column;align-items:flex-start}.site-footer strong{text-align:left}.dialog-inner{padding:30px 23px}.dialog-inner h2{font-size:37px}.winner-card{padding:30px 18px}.winner-name{font-size:20px}.trophy{font-size:73px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+
+</style>
+    
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="brand" aria-label="A-Class English">
+          <div class="brand-mark">A<span>✦</span></div>
+          <div class="brand-type"><strong>A-CLASS ENGLISH</strong><small>LEARN · PLAY · SHINE</small></div>
+        </div>
+        <nav class="top-actions" aria-label="Game controls">
+          <button id="rules-button" class="utility-button" type="button"><span aria-hidden="true">ⓘ</span> How to play</button>
+          <button id="talk-button" class="utility-button" type="button"><span aria-hidden="true">✦</span> Talk it out</button>
+          <button id="sound-button" class="utility-button" type="button" aria-pressed="true"><span aria-hidden="true">♫</span> Sound on</button>
+          <button id="fullscreen-button" class="utility-button" type="button" aria-pressed="false"><span aria-hidden="true">⛶</span> Projector mode</button>
+          <button id="reset-button" class="utility-button reset-button" type="button"><span aria-hidden="true">↻</span> Restart</button>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> THE CLASSROOM CHAMPIONSHIP <span class="eyebrow-star">✳</span> B2 ENGLISH</div>
+            <h1 id="page-title">THE GREAT <span>READING RACE!</span></h1>
+            <p>Two texts. Four teams. <strong>One legendary champion.</strong> Get every answer right, reach the finish line first, and let the celebrations begin!</p>
+            <div class="topic-pills" aria-label="Topics"><span>☀️ SUN SMART</span><span>⚓ HYDRA HISTORY</span><span>💬 THINK &amp; SPEAK</span></div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="hero-spark hero-spark-one">✦</div>
+            <div class="hero-spark hero-spark-two">✳</div>
+            <div class="sun-disc"><span>☀</span></div>
+            <div class="sea-disc"><span>⚓</span></div>
+            <div class="hero-ribbon">READY · SET · READ!</div>
+          </div>
+        </section>
+
+        <section class="game-intro" aria-label="Game status">
+          <div><span class="section-label">THE GAME BOARD</span><h2>Race to <em>15!</em></h2></div>
+          <div class="live-stats"><div class="live-tag"><span class="pulse-dot"></span> LIVE CLASSROOM RACE</div><div class="answered-stat"><strong id="answered-count">0</strong><span>/ 60 correct answers</span></div></div>
+        </section>
+
+        <section id="board" class="race-board" aria-label="Four team reading lanes"></section>
+
+        <section class="below-board" aria-label="Game tips">
+          <div class="tip-icon">💡</div>
+          <p><strong>Teacher's tip:</strong> Teams can discuss their answer before pressing A or B. A wrong answer means a short pause and another try. Personal-opinion prompts live in <button id="talk-inline" type="button" class="text-button">Talk it out</button> and do not affect the score.</p>
+        </section>
+      </main>
+
+      <footer class="site-footer"><span>MADE FOR CURIOUS MINDS <span aria-hidden="true">✦</span> BRAVE ENGLISH SPEAKERS</span><strong>Evangelia Domvrou - Teacher of English Language and Literature</strong></footer>
+    </div>
+
+    <dialog id="rules-dialog" class="modal-dialog">
+      <div class="dialog-inner">
+        <button class="modal-close" type="button" data-close="rules-dialog" aria-label="Close rules">✕</button>
+        <span class="modal-kicker">✦ GAME RULES ✦</span>
+        <h2>Ready, set, <em>read!</em></h2>
+        <ol class="rules-list">
+          <li><span>01</span><div><strong>Pick your team lane.</strong><p>Rename your team if you like. Each team has 15 different B2 questions based on the two readings.</p></div></li>
+          <li><span>02</span><div><strong>Choose A or B.</strong><p>Talk it through, then tap your answer. Every correct answer earns one point and unlocks the next square.</p></div></li>
+          <li><span>03</span><div><strong>Wrong? Try again.</strong><p>Read the clue, wait a couple of seconds, and choose again. Your question stays open until you get it right.</p></div></li>
+          <li><span>04</span><div><strong>First to 15 wins!</strong><p>The first team to complete all 15 questions correctly is crowned champion, with a victory fanfare.</p></div></li>
+        </ol>
+        <p class="rule-footnote">🏁 One shared board is designed for classroom projector / interactive whiteboard play. Progress is saved in this browser.</p>
+        <button class="primary-button" type="button" data-close="rules-dialog">Let's play!</button>
+      </div>
+    </dialog>
+
+    <dialog id="talk-dialog" class="modal-dialog talk-dialog">
+      <div class="dialog-inner">
+        <button class="modal-close" type="button" data-close="talk-dialog" aria-label="Close discussion prompts">✕</button>
+        <span class="modal-kicker">🎤 NO WRONG ANSWERS HERE</span>
+        <h2>Talk it <em>out!</em></h2>
+        <p class="talk-intro">Pause the race for a quick opinion round. Give a reason or an example. These questions are for speaking practice, not points.</p>
+        <div class="talk-card"><div class="talk-card-top"><span id="talk-category">SUN SMART</span><span id="talk-count">1 / 8</span></div><p id="talk-question"></p></div>
+        <div class="talk-controls"><button id="talk-prev" type="button" class="secondary-button">← Previous</button><button id="talk-next" type="button" class="primary-button">Next prompt →</button></div>
+      </div>
+    </dialog>
+
+    <div id="winner-overlay" class="winner-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="winner-title">
+      <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+      <div class="winner-card"><span class="victory-kicker">✦ THE RESULTS ARE IN ✦</span><div class="trophy" aria-hidden="true">🏆</div><h2 id="winner-title">WE HAVE A <em>CHAMPION!</em></h2><div class="winner-name" id="winner-name"></div><p>15 out of 15 questions conquered. You read, you thought, you raced, and you won!</p><div id="final-scores" class="final-scores"></div><div class="winner-buttons"><button id="winner-replay" type="button" class="primary-button">↻ Play again</button><button id="winner-close" type="button" class="secondary-button">View the board</button></div></div>
+    </div>
+    <div id="sr-announce" class="sr-only" role="status" aria-live="polite"></div>
+    <!-- EDIT QUESTIONS AND GAME LOGIC BELOW. Search for "const sets". -->
+  <script>
+(() => {
+  'use strict';
+
+  const q = (topic, kind, prompt, a, b, correct, explanation) => ({ topic, kind, prompt, options: [a, b], correct, explanation });
+
+  // Original questions based on the two supplied classroom passages.
+  // Every scored question has one answer supported by the reading.
+  const sets = [
+    [
+      q('sun','READING','Why does the passage describe sunlight as beneficial?', 'It helps the body make vitamin D.', 'It prevents every skin problem.', 0, 'The text links sunlight to vitamin D and healthy bones.'),
+      q('hydra','GEOGRAPHY','Where is Hydra situated?', 'In the Ionian Sea, near Corfu.', 'In the Argosaronic Gulf, near Piraeus.', 1, 'The opening sentence places Hydra in the Argosaronic Gulf.'),
+      q('sun','TRUE OR FALSE','Burning is one of the three main dangers named in the text.', 'True', 'False', 0, 'The three dangers are burning, skin ageing and skin cancer.'),
+      q('hydra','VOCABULARY','What does the name “Hydra” mean in the passage?', 'A place with plenty of water', 'A place famous for tall mountains', 0, 'Its name refers to plentiful water, even though the island is now rocky.'),
+      q('sun','VOCABULARY','What is melanin?', 'A kind of ultraviolet ray', 'The pigment that gives skin a tan', 1, 'The skin produces melanin, which gives it colour.'),
+      q('hydra','CAUSE & EFFECT','Why was agriculture difficult on Hydra?', 'The island was infertile.', 'The island had too many ships.', 0, 'The passage describes the island as infertile and unsuitable for agriculture.'),
+      q('sun','INFERENCE','If your skin becomes red in the sun, what does the text suggest?', 'Your skin is getting stronger.', 'Your skin has already been damaged.', 1, 'The passage says redness is a sign of damage, not success.'),
+      q('hydra','HISTORY','Why did the Turks initially ignore Hydra in 1715?', 'It was considered infertile and unimportant.', 'It already had a huge army.', 0, 'They overlooked the island because it offered little agricultural value.'),
+      q('sun','READING','According to the text, what causes dry, wrinkled skin?', 'Ultraviolet rays breaking down the skin', 'Vitamin D strengthening the skin', 0, 'The ageing paragraph blames ultraviolet rays.'),
+      q('hydra','VOCABULARY','A “merchant marine power” is especially strong in…', 'farming and livestock.', 'commercial shipping and sea trade.', 1, 'Hydra’s fleet developed through trade and shipping.'),
+      q('sun','NUMBER SENSE','According to the passage, a higher SPF number means…', 'greater protection from ultraviolet rays.', 'less protection from sunlight.', 0, 'The writer explicitly links higher SPF numbers with more protection.'),
+      q('hydra','TRUE OR FALSE','Hydra was the first place to begin the Greek War of Independence in 1821.', 'True', 'False', 1, 'The text says the Hydriots were not the first to start it.'),
+      q('sun','VOCABULARY','In “guard yourself against them,” guard means…', 'protect.', 'entertain.', 0, 'To guard yourself against dangers is to protect yourself.'),
+      q('hydra','CULTURE','Which object is mentioned as part of the Museum of Hydra collection?', 'Ancient Egyptian pyramids', 'Figureheads from historic ships', 1, 'The museum exhibits figureheads, costumes, art and ship paintings.'),
+      q('sun','BIG IDEA','Which message best reflects the sunbathing text?', 'Enjoy sunshine, but understand and reduce its dangers.', 'A tan proves that sunlight is harmless.', 0, 'The author balances the benefits of sunshine with important risks.')
+    ],
+    [
+      q('hydra','TRUE OR FALSE','Hydra is said to have been covered with forests in the past.', 'False', 'True', 1, 'The passage says the island was once believed to be forested.'),
+      q('sun','READING','Which emotional benefit of sunlight is mentioned?', 'It can help people get rid of stress.', 'It makes everyone more competitive.', 0, 'The text explicitly says sunlight helps you get rid of stress.'),
+      q('hydra','GEOGRAPHY','Which port is named as being near Hydra?', 'Piraeus', 'Patras', 0, 'Hydra is described as a short distance from Piraeus.'),
+      q('sun','SPOT THE ODD ONE','Which is NOT listed as one of the three main sunbathing dangers?', 'Skin cancer', 'Hearing loss', 1, 'The three listed dangers concern the skin.'),
+      q('hydra','CAUSE & EFFECT','What work did early Hydriots turn to when farming failed?', 'Shipbuilding', 'Mining for diamonds', 0, 'They began building ships to earn a living.'),
+      q('sun','VOCABULARY','In the text, UV rays are…', 'ultrasonic vibrations.', 'ultraviolet rays.', 1, '“Ultraviolet” is written out in the burning paragraph.'),
+      q('hydra','VOCABULARY','Hydra gained “autonomous status.” This means it…', 'had a degree of self-government.', 'was permanently uninhabited.', 0, 'Autonomous describes a place with some independence in governing itself.'),
+      q('sun','TRUE OR FALSE','The passage claims sun exposure can contribute to wrinkles.', 'True', 'False', 0, 'The ageing section says sunlight can make skin dry and wrinkled.'),
+      q('hydra','HISTORY','Hydra’s ships once held a monopoly over which supplies?', 'Timber supplies in Northern Europe', 'Food supplies in the Mediterranean', 1, 'The text mentions a monopoly of Mediterranean food supplies.'),
+      q('sun','CAUSE & EFFECT','According to the text, staying in the sun for too long can increase…', 'the risk of skin cancer.', 'the number of bones in your body.', 0, 'The skin cancer paragraph warns about prolonged exposure.'),
+      q('hydra','NUMBER SENSE','When Hydra joined the Revolution, its ships made up roughly…', 'one tenth of the Greek fleet.', 'two thirds of the Greek fleet.', 1, 'The passage says Hydra contributed two-thirds of the whole fleet.'),
+      q('sun','IDIOM','To “keep an eye on” changes to your skin means to…', 'monitor them carefully.', 'ignore them until next summer.', 0, 'The phrase means to watch or check something attentively.'),
+      q('hydra','WHO IS WHO','Who became a famous commander of the Greek fleet?', 'Andreas Miaoulis', 'Alexander Fleming', 0, 'Admiral Andreas Miaoulis is identified as a commander.'),
+      q('sun','AUTHOR’S PURPOSE','Why does the writer explain the three dangers?', 'To encourage readers to protect themselves', 'To convince readers never to go outdoors', 0, 'The writer believes knowledge helps us guard against the risks.'),
+      q('hydra','FESTIVALS','Around what time is the Miaoulia festival held?', 'Around December 20', 'Around June 20', 1, 'The passage places Miaoulia around June 20 each year.')
+    ],
+    [
+      q('sun','TRUE OR FALSE','The text says sunshine has no benefits at all.', 'True', 'False', 1, 'It mentions stress relief and vitamin D before discussing the dangers.'),
+      q('hydra','READING','How is present-day Hydra described?', 'Grey and rocky', 'Covered in thick tropical forest', 0, 'The author contrasts its name with the island’s rocky appearance today.'),
+      q('sun','SCIENCE WORDS','What do the skin cells need time to produce for a tan?', 'Melanin', 'Salt', 0, 'The passage explains that skin cells produce melanin.'),
+      q('hydra','VOCABULARY','What is the closest meaning of “canny Hydriots”?', 'Careless islanders', 'Clever, resourceful islanders', 1, '“Canny” suggests shrewdness and good judgement.'),
+      q('sun','READING','What is the first visible warning sign of sunburn in the text?', 'Skin turning red', 'Skin turning blue', 0, 'Redness is presented as a sign that damage has begun.'),
+      q('hydra','VOCABULARY','What is a “fleet”?', 'A group of ships', 'A chain of mountain villages', 0, 'The text repeatedly refers to Hydra’s ships as a fleet.'),
+      q('sun','COMPARE','The ageing paragraph claims sunlight can change skin…', 'less than natural ageing does.', 'more than natural ageing does.', 1, 'It says doctors have shown more changes from sunlight than from natural ageing.'),
+      q('hydra','CAUSE & EFFECT','Why did the island’s lack of fertile land matter historically?', 'It encouraged the development of shipping.', 'It made Hydra a famous wheat producer.', 0, 'The islanders found opportunities at sea instead of in agriculture.'),
+      q('sun','VOCABULARY','What does “wrinkled” mean when describing skin?', 'Marked by lines and folds', 'Perfectly smooth', 0, 'Wrinkles are small lines or folds in the skin.'),
+      q('hydra','HISTORY','By the nineteenth century, Hydra had become…', 'a major maritime power.', 'a major desert farming centre.', 0, 'The passage says its wealth and shipping power grew by the 1800s.'),
+      q('sun','NUMBER SENSE','In the passage’s SPF example, factor 4 is compared with factor 3 as…', 'allowing a shorter time before burning.', 'allowing a longer time before burning.', 1, 'The passage uses the numbers 3 and 4 to illustrate increasing protection.'),
+      q('hydra','GEOGRAPHY','In which sea did Hydra’s vessels control food supplies?', 'The Mediterranean Sea', 'The Baltic Sea', 0, 'The Mediterranean is named in the trade paragraph.'),
+      q('sun','INFERENCE','Why does trying to tan too quickly increase the risk described?', 'Skin needs time to produce its protective pigment.', 'Ultraviolet rays stop reaching the skin.', 0, 'The text links rapid tanning to insufficient time for melanin production.'),
+      q('hydra','TRUE OR FALSE','Hydra contributed both ships and men to the Revolution.', 'False', 'True', 1, 'Both the fleet and the people of Hydra contributed, according to the text.'),
+      q('sun','CRITICAL THINKING','The phrase “without any risk” at the end is best treated as…', 'a guarantee that no sun damage can ever happen.', 'an overconfident claim given the dangers described.', 1, 'A careful reader notices that the passage itself describes several risks.')
+    ],
+    [
+      q('hydra','GEOGRAPHY','Hydra belongs to the islands of which gulf?', 'The Argosaronic Gulf', 'The Gulf of Corinth', 0, 'The first sentence gives the location.'),
+      q('sun','READING','Why does the text mention vitamin D?', 'It makes skin permanently darker.', 'It is important for strong, healthy bones.', 1, 'Vitamin D is described as important for bone health.'),
+      q('hydra','CAUSE & EFFECT','The earliest settlers could not depend on…', 'agriculture.', 'seaborne trade.', 0, 'The passage explains why farming could not provide a living.'),
+      q('sun','TRUE OR FALSE','The text says the skin needs time to thicken before tanning.', 'False', 'True', 1, 'It advises giving the skin time to thicken and produce melanin.'),
+      q('hydra','HISTORY','In what year did the Turks capture Hydra, according to the passage?', '1715', '1821', 0, 'The year 1715 appears in the paragraph about the Turks.'),
+      q('sun','CAUSE & EFFECT','What do ultraviolet rays do in the ageing paragraph?', 'They make skin wetter and smoother.', 'They break down skin and make it dry.', 1, 'The passage associates UV exposure with dryness and wrinkles.'),
+      q('hydra','TIMELINE','When was Hydra wealthy and powerful at sea?', 'By the 19th century', 'Only after the year 2000', 0, 'Hydra had developed into a rich maritime power by the nineteenth century.'),
+      q('sun','VOCABULARY','“Ageing” is the process of…', 'becoming older.', 'becoming louder.', 0, 'The word describes getting older over time.'),
+      q('hydra','NUMBER SENSE','What fraction of the Greek fleet came from Hydra when it joined the Revolution?', 'About one third', 'About two thirds', 1, 'The passage credits Hydra with two-thirds of the fleet.'),
+      q('sun','ABBREVIATION','What does SPF stand for?', 'Sun Protection Factor', 'Summer Pigment Formula', 0, 'The text uses “sun protection factor” for the number on the cream.'),
+      q('hydra','WHO IS WHO','According to the passage, Georgios Koundouriotis became…', 'the first Prime Minister of the new Greek State.', 'the founder of the Olympic Games.', 0, 'The text connects Koundouriotis with the first prime ministership.'),
+      q('sun','IDIOM','Which expression means “protect yourself from danger”?', 'Guard yourself against it', 'Turn a blind eye to it', 0, '“Guard against” means take steps to avoid harm.'),
+      q('hydra','MUSEUM','Which pair of exhibits is described in the Museum of Hydra?', 'Space suits and dinosaur skeletons', 'Traditional costumes and paintings of ships', 1, 'The text lists costumes and ship paintings among the exhibits.'),
+      q('sun','COMPARE','In the text’s examples, which factor offers more protection?', 'SPF 3', 'SPF 4', 1, 'The example says the higher factor gives more protection.'),
+      q('hydra','CULTURE','Which hero is remembered at the Miaoulia festival?', 'Andreas Miaoulis', 'Leonardo da Vinci', 0, 'The festival honours Admiral Andreas Miaoulis.')
+    ]
+  ];
+
+  const discussion = [
+    {topic:'SUN SMART', prompt:'Would you rather spend a summer day at the beach or in the mountains? Explain your choice.'},
+    {topic:'CRITICAL THINKING', prompt:'Does the sunbathing writer sound too confident in the final sentence? Why or why not?'},
+    {topic:'HYDRA HISTORY', prompt:'Would you rather explore Hydra’s historical museum or sail around the island? Give two reasons.'},
+    {topic:'IMAGINE', prompt:'Imagine you lived on Hydra in 1821. How might life on the island be different from today?'},
+    {topic:'SUN SMART', prompt:'What would you say to a friend who thinks a tan is always a sign of healthy skin?'},
+    {topic:'VOCABULARY CHALLENGE', prompt:'Can you use “canny”, “fleet”, and “guard against” in three original sentences?'},
+    {topic:'DEBATE', prompt:'Is learning history through festivals more memorable than learning it in a classroom?'},
+    {topic:'YOUR WORLD', prompt:'Which Greek place would you recommend to a visitor, and what story would you tell about it?'}
+  ];
+
+  const defaults = [
+    {name:'Sun Chasers', emoji:'☀️'},
+    {name:'Wave Riders', emoji:'🌊'},
+    {name:'Word Wizards', emoji:'✨'},
+    {name:'History Hunters', emoji:'🧭'}
+  ];
+  const STORAGE_KEY = 'aclass-reading-race-v1';
+  const board = document.getElementById('board');
+  const overlay = document.getElementById('winner-overlay');
+  const soundButton = document.getElementById('sound-button');
+  const announce = document.getElementById('sr-announce');
+  let audioContext = null;
+  let talkIndex = 0;
+
+  const freshState = () => ({ teams: defaults.map(t => ({name:t.name, index:0, mistakes:0, busy:false, result:null})), winner:null, sound:true });
+  let state = freshState();
+
+  try {
+    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (stored && Array.isArray(stored.teams) && stored.teams.length === 4) {
+      state.teams = stored.teams.map((t, i) => ({
+        name: typeof t.name === 'string' && t.name.trim() ? t.name.slice(0, 32) : defaults[i].name,
+        index: Math.max(0, Math.min(15, Number.isInteger(t.index) ? t.index : 0)),
+        mistakes: Math.max(0, Math.min(999, Number.isInteger(t.mistakes) ? t.mistakes : 0)),
+        busy:false, result:null
+      }));
+      state.winner = Number.isInteger(stored.winner) && stored.winner >= 0 && stored.winner < 4 ? stored.winner : null;
+      state.sound = stored.sound !== false;
+    }
+  } catch (_) { /* Start fresh when browser storage is unavailable. */ }
+
+  function save() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({teams:state.teams, winner:state.winner, sound:state.sound})); } catch (_) { /* Game also works without storage. */ }
+  }
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function trackHtml(t) {
+    return Array.from({length:15}, (_, n) => {
+      const type = n < t.index ? 'done' : n === t.index ? 'current' : '';
+      return `<div class="track-tile ${type}" title="Question ${n + 1}${n < t.index ? ' complete' : ''}"><span>${String(n + 1).padStart(2,'0')}</span></div>`;
+    }).join('');
+  }
+  function questionHtml(t, i) {
+    if (t.index >= 15) return `<div class="question-card finished"><div class="finish-medal">🏅</div><h3>FINISH LINE!</h3><p>All 15 challenges completed.<br>Incredible work, team!</p></div>`;
+    const x = sets[i][t.index];
+    const lockedByWinner = state.winner !== null;
+    const result = t.result;
+    const feedback = result ? `<div class="feedback ${result.correct ? 'good':'bad'}" role="status"><strong>${result.correct ? '✓ Brilliant!':'↻ Not quite — try again!'}</strong>${escapeHtml(result.correct ? x.explanation : 'Clue: ' + x.explanation)}</div>` : '';
+    return `<div class="question-card ${lockedByWinner ? 'frozen':''}">
+      <div class="q-meta"><span class="q-category">${escapeHtml(x.kind)}</span><span class="q-count">Q ${String(t.index+1).padStart(2,'0')} / 15</span></div>
+      <span class="q-topic">${x.topic === 'sun' ? '☀ SUN SMART' : '⚓ HYDRA HISTORY'}</span>
+      <p class="question-text">${escapeHtml(x.prompt)}</p>
+      <div class="answer-group">${x.options.map((opt, choice) => {
+        const status = result && result.choice === choice ? (result.correct ? 'is-correct':'is-wrong') : '';
+        return `<button class="answer-btn ${status}" type="button" data-answer="${i}:${choice}" ${t.busy || lockedByWinner ? 'disabled':''}><span class="answer-letter">${choice === 0 ? 'A':'B'}</span><span>${escapeHtml(opt)}</span></button>`;
+      }).join('')}</div>${feedback}
+    </div>`;
+  }
+  function laneHtml(t, i) {
+    return `<article class="lane" data-team="${i}" aria-label="Team ${i+1}: ${escapeHtml(t.name)}">
+      <div class="lane-header"><div class="lane-title"><div class="team-avatar" aria-hidden="true">${defaults[i].emoji}</div><div class="team-title-block"><span class="team-number">TEAM 0${i+1}</span><input class="team-name" type="text" maxlength="32" value="${escapeHtml(t.name)}" aria-label="Rename team ${i+1}" data-name="${i}" title="Click to rename your team" /></div></div><div class="score-badge" aria-label="Score ${t.index} out of 15"><strong>${t.index}</strong><span>/ 15 PTS</span></div></div>
+      <div class="track-section"><div class="track-topline"><span>START → 15 CHALLENGES</span><span class="finish">🏁 FINISH</span></div><div class="track-grid" aria-label="${t.index} of 15 squares completed">${trackHtml(t)}</div></div>
+      <div class="question-zone">${questionHtml(t, i)}</div>
+      <div class="lane-foot"><span class="lane-foot-label">CORRECT ANSWERS</span><span class="lane-foot-number">${t.index} / 15</span><span class="mistakes-label">Retries <span>${t.mistakes}</span></span></div>
+    </article>`;
+  }
+  function render() {
+    board.innerHTML = state.teams.map(laneHtml).join('');
+    document.getElementById('answered-count').textContent = String(state.teams.reduce((n,t)=>n+t.index,0));
+    soundButton.innerHTML = `<span aria-hidden="true">${state.sound ? '♫' : '♪'}</span> Sound ${state.sound ? 'on' : 'off'}`;
+    soundButton.setAttribute('aria-pressed', String(state.sound));
+  }
+
+  function ensureAudio() {
+    if (!state.sound) return null;
+    try {
+      if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioContext.state === 'suspended') audioContext.resume().catch(()=>{});
+      return audioContext;
+    } catch (_) { return null; }
+  }
+  function note(frequency, at, duration, volume=0.09, wave='triangle') {
+    const ctx = ensureAudio(); if (!ctx) return;
+    const osc=ctx.createOscillator(), gain=ctx.createGain();
+    osc.type=wave; osc.frequency.setValueAtTime(frequency,at);
+    gain.gain.setValueAtTime(0.0001,at);
+    gain.gain.exponentialRampToValueAtTime(volume,at+.017);
+    gain.gain.exponentialRampToValueAtTime(0.0001,at+duration);
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.start(at); osc.stop(at+duration+.02);
+  }
+  function ding() {
+    const ctx=ensureAudio(); if(!ctx) return; const t=ctx.currentTime+.005;
+    note(659.25,t,.13,.055); note(987.77,t+.09,.23,.065);
+  }
+  function tryAgainSound() {
+    const ctx=ensureAudio(); if(!ctx) return; const t=ctx.currentTime+.005;
+    note(293.66,t,.13,.032,'sine'); note(246.94,t+.12,.19,.028,'sine');
+  }
+  function victoryMusic() {
+    const ctx=ensureAudio(); if(!ctx) return;
+    const start=ctx.currentTime+.08;
+    // An original five-second classroom fanfare; no copyrighted song recording.
+    const melody=[[523.25,0,.21],[659.25,.24,.21],[783.99,.48,.25],[1046.5,.79,.46],
+      [880,1.42,.17],[987.77,1.63,.18],[1174.66,1.86,.19],[1318.51,2.11,.66],
+      [1174.66,3.00,.20],[1318.51,3.24,.24],[1567.98,3.50,.87]];
+    melody.forEach(([freq,off,len])=>note(freq,start+off,len,.11,'triangle'));
+    [523.25,659.25,783.99,1046.5].forEach(f=>note(f,start+3.56,1.15,.038,'sine'));
+  }
+  function speakWinner(name) {
+    if (!state.sound || !('speechSynthesis' in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(`Congratulations, ${name}! You are our A-Class English reading champions!`);
+      utterance.lang='en-GB'; utterance.rate=.97; utterance.pitch=1.1; utterance.volume=.85;
+      window.speechSynthesis.speak(utterance);
+    } catch (_) { /* Music and visual announcement are still available. */ }
+  }
+
+  function answer(teamId, choice) {
+    const t=state.teams[teamId];
+    if (!t || t.busy || t.index >= 15 || state.winner !== null) return;
+    ensureAudio();
+    const current=sets[teamId][t.index];
+    const correct=choice === current.correct;
+    t.busy=true; t.result={correct,choice};
+    if (correct) ding(); else {t.mistakes++; tryAgainSound();}
+    announce.textContent=`${t.name}: ${correct ? 'Correct!':'Not quite. Try again after the clue.'}`;
+    render(); save();
+    window.setTimeout(()=>{
+      t.busy=false; t.result=null;
+      if (correct) t.index++;
+      if (t.index === 15 && state.winner === null) {
+        state.winner=teamId;
+        save(); render(); showWinner();
+      } else {save(); render();}
+    }, correct ? 950 : 2200);
+  }
+
+  function createConfetti() {
+    const layer=document.getElementById('confetti-layer'); layer.innerHTML='';
+    const colors=['#ffdc69','#fa946e','#69d7d0','#b99af6','#fff','#91e5ad'];
+    for(let i=0;i<54;i++){
+      const el=document.createElement('i');el.className='confetti-piece';
+      el.style.left=`${Math.random()*100}%`;
+      el.style.background=colors[i%colors.length];
+      el.style.animationDelay=`${Math.random()*-4}s`;
+      el.style.animationDuration=`${2.8+Math.random()*2.5}s`;
+      el.style.transform=`rotate(${Math.random()*180}deg)`;
+      el.style.borderRadius=i%3===0?'50%':'2px';
+      layer.appendChild(el);
+    }
+  }
+  function showWinner(replaySound=true) {
+    if (state.winner === null) return;
+    const winningName=state.teams[state.winner].name;
+    document.getElementById('winner-name').textContent=winningName;
+    document.getElementById('final-scores').innerHTML=state.teams.map((t,i)=>`<span class="final-score">${defaults[i].emoji} ${escapeHtml(t.name)} <strong>${t.index}/15</strong></span>`).join('');
+    createConfetti(); overlay.hidden=false;
+    announce.textContent=`${winningName} are the champions!`;
+    document.getElementById('winner-replay').focus();
+    if(replaySound){victoryMusic();speakWinner(winningName);}
+  }
+  function resetGame() {
+    state=freshState(); save(); render(); overlay.hidden=true;
+    if ('speechSynthesis' in window) try{speechSynthesis.cancel()}catch(_){ }
+    announce.textContent='The game has been restarted. Good luck, teams!';
+  }
+
+  function openDialog(id) {
+    const dialog=document.getElementById(id);
+    if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open','');
+  }
+  function drawTalk() {
+    const item=discussion[talkIndex];
+    document.getElementById('talk-category').textContent=item.topic;
+    document.getElementById('talk-count').textContent=`${talkIndex+1} / ${discussion.length}`;
+    document.getElementById('talk-question').textContent=item.prompt;
+  }
+
+  board.addEventListener('click', e=>{
+    const btn=e.target.closest('[data-answer]');if(!btn)return;
+    const [team,choice]=btn.dataset.answer.split(':').map(Number);
+    answer(team,choice);
+  });
+  board.addEventListener('input', e=>{
+    const input=e.target.closest('[data-name]');if(!input)return;
+    const i=Number(input.dataset.name);state.teams[i].name=input.value.slice(0,32);save();
+  });
+  board.addEventListener('change', e=>{
+    const input=e.target.closest('[data-name]');if(!input)return;
+    const i=Number(input.dataset.name);
+    state.teams[i].name=(input.value.trim()||defaults[i].name).slice(0,32);
+    save();render();
+  });
+  document.getElementById('rules-button').addEventListener('click',()=>openDialog('rules-dialog'));
+  document.getElementById('talk-button').addEventListener('click',()=>{drawTalk();openDialog('talk-dialog')});
+  document.getElementById('talk-inline').addEventListener('click',()=>{drawTalk();openDialog('talk-dialog')});
+  document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>document.getElementById(btn.dataset.close).close()));
+  document.querySelectorAll('.modal-dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+  document.getElementById('talk-prev').addEventListener('click',()=>{talkIndex=(talkIndex-1+discussion.length)%discussion.length;drawTalk()});
+  document.getElementById('talk-next').addEventListener('click',()=>{talkIndex=(talkIndex+1)%discussion.length;drawTalk()});
+  soundButton.addEventListener('click',()=>{state.sound=!state.sound;if(state.sound)ensureAudio();save();render()});
+  document.getElementById('reset-button').addEventListener('click',()=>{if(window.confirm('Restart the whole race? All team scores will go back to zero.'))resetGame()});
+  document.getElementById('winner-replay').addEventListener('click',resetGame);
+  document.getElementById('winner-close').addEventListener('click',()=>{overlay.hidden=true;document.getElementById('reset-button').focus()});
+  document.getElementById('fullscreen-button').addEventListener('click',()=>{
+    const compact = !document.body.classList.contains('projection-mode');
+    document.body.classList.toggle('projection-mode',compact);
+    const button=document.getElementById('fullscreen-button');
+    button.innerHTML=`<span aria-hidden="true">⛶</span> ${compact ? 'Exit projector':'Projector mode'}`;
+    button.setAttribute('aria-pressed',String(compact));
+    if(compact){
+      document.documentElement.requestFullscreen?.().catch(()=>{});
+      window.scrollTo({top:0,behavior:'smooth'});
+    } else if(document.fullscreenElement) document.exitFullscreen?.().catch(()=>{});
+  });
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!overlay.hidden){overlay.hidden=true;document.getElementById('reset-button').focus()}});
+
+  render();
+  if(state.winner!==null)showWinner(false);
+})();
+
+  </script>
+  </body>
+</html>
