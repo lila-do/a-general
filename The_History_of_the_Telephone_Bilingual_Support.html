@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="A Class English - Unit 3: interactive reading comprehension, vocabulary, and glossary activities about the history of the telephone.">
+  <title>The History of the Telephone | A Class English - Unit 3</title>
+  <style>
+    :root {
+      --ink:#1a3045; --muted:#587081; --paper:#f6f8f7; --white:#fff;
+      --teal:#116e73; --teal-dark:#0b5559; --teal-pale:#e8f6f3;
+      --gold:#efa84e; --outline:#d8e2e4; --shadow:0 12px 32px rgba(26,48,69,.065);
+      --good:#176b45; --good-bg:#e9f7ee; --bad:#9b3439; --bad-bg:#fff0f0;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+    button,input,select{font:inherit}
+    button{cursor:pointer}
+    button:disabled{cursor:default}
+    button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .container{width:min(1100px,calc(100% - 40px));margin-inline:auto}
+    .masthead{position:relative;overflow:hidden;background:linear-gradient(120deg,#102f40 0%,#10535a 70%,#176f72 100%);color:white}
+    .masthead::after{content:"";position:absolute;width:400px;height:400px;border:65px solid rgba(255,255,255,.04);border-radius:50%;right:-120px;top:-160px;pointer-events:none}
+    .topline{padding-top:31px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:1}
+    .course{font-size:.9rem;letter-spacing:.16em;font-weight:800;text-transform:uppercase;color:#cef2e9}
+    .course .dash{color:var(--gold);padding-inline:.25rem}
+    .type-badge{border:1px solid rgba(255,255,255,.35);border-radius:100px;color:#e6f7f3;padding:6px 13px;font-size:.81rem;white-space:nowrap}
+    .hero{padding:43px 0 56px;position:relative;z-index:1}
+    .eyebrow{text-transform:uppercase;letter-spacing:.16em;color:#f6ce8e;font-size:.76rem;font-weight:800;margin:0 0 7px}
+    h1{font-size:clamp(2.3rem,6vw,4.7rem);line-height:1.08;letter-spacing:-.046em;margin:0;max-width:720px;font-weight:800}
+    .subheading{font-size:1.12rem;max-width:700px;color:#d8e9eb;margin:18px 0 0}
+    .hero-mark{position:absolute;right:10px;bottom:24px;opacity:.17;font-size:clamp(5rem,17vw,11rem);line-height:1;transform:rotate(-16deg);pointer-events:none}
+    .toolbar{background:var(--white);border-bottom:1px solid var(--outline)}
+    .toolbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;flex-wrap:wrap}
+    .jump-links{display:flex;gap:7px;flex-wrap:wrap}
+    .jump-links a{text-decoration:none;color:var(--teal-dark);font-size:.88rem;font-weight:750;padding:7px 12px;border-radius:9px}
+    .jump-links a:hover{background:var(--teal-pale)}
+    .button{border:1px solid var(--outline);background:#fff;border-radius:10px;color:var(--ink);padding:10px 15px;font-size:.92rem;font-weight:700;transition:background .15s,border-color .15s}
+    .button:hover:not(:disabled){background:#f0f7f6;border-color:#9ccac6}
+    .button-primary{background:var(--teal);border-color:var(--teal);color:white}
+    .button-primary:hover:not(:disabled){background:var(--teal-dark);border-color:var(--teal-dark)}
+    .button:disabled{opacity:.58}
+    main{padding:32px 0 60px}
+    .intro-card{background:var(--white);border:1px solid var(--outline);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .intro-head{padding:23px 27px;background:linear-gradient(90deg,#f0f9f6,white);display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .intro-head h2{margin:0;font-size:1.27rem}
+    .intro-head p{margin:4px 0 0;color:var(--muted);font-size:.93rem}
+    .reading-details{border-top:1px solid var(--outline)}
+    .reading-details summary{padding:13px 27px;font-weight:750;color:var(--teal-dark);cursor:pointer;list-style-position:inside}
+    .passage{padding:0 27px 25px;color:#324653;max-width:95ch}
+    .passage p{margin:13px 0}
+    .passage blockquote{margin:19px 0;padding:14px 17px;border-left:4px solid var(--gold);background:#fff9ed;font-weight:650;color:#584525;border-radius:0 9px 9px 0}
+    .instruction-strip{padding:18px 22px;background:#fff;border:1px solid var(--outline);border-radius:14px;margin:22px 0 0;color:var(--muted)}
+    .instruction-strip strong{color:var(--ink)}
+    .section-top{margin:44px 0 19px;display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
+    .section-top h2{margin:0;font-size:clamp(1.6rem,3.5vw,2.05rem);letter-spacing:-.024em;line-height:1.2}
+    .section-top p{margin:6px 0 0;color:var(--muted);font-size:.94rem}
+    .section-kicker{display:block;color:var(--teal);text-transform:uppercase;font-size:.74rem;letter-spacing:.14em;font-weight:850;margin-bottom:5px}
+    .score-panel{display:flex;gap:20px;align-items:center;background:var(--white);border:1px solid var(--outline);border-radius:14px;padding:13px 18px;flex-wrap:wrap}
+    .score-number{font-size:1.48rem;line-height:1.1;font-weight:800;color:var(--teal-dark);font-variant-numeric:tabular-nums}
+    .score-caption{color:var(--muted);font-size:.77rem}
+    .progress-track{width:100%;height:7px;background:#e0ece9;overflow:hidden;border-radius:100px;margin-top:12px}
+    .progress-fill{background:var(--teal);height:100%;width:0;transition:width .25s}
+    .quiz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+    .q-card{background:white;border:1px solid var(--outline);box-shadow:var(--shadow);padding:21px;border-radius:15px;display:flex;flex-direction:column;gap:12px;min-width:0}
+    .q-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .q-number{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:850;color:var(--teal)}
+    .q-status{font-size:.76rem;color:var(--muted);background:#eff3f3;border-radius:100px;padding:4px 9px;font-weight:700}
+    .q-card h3{font-size:1.02rem;font-weight:750;line-height:1.46;margin:0}
+    .answers{display:grid;gap:8px;margin-top:1px}
+    .answer{width:100%;background:#fbfcfc;border:1px solid var(--outline);color:var(--ink);text-align:left;padding:10px 12px;border-radius:10px;line-height:1.45;display:flex;align-items:flex-start;gap:10px;transition:background .13s,border-color .13s}
+    .answer:hover:not(:disabled){background:var(--teal-pale);border-color:#93bbb8}
+    .answer .letter{flex:none;display:inline-grid;place-items:center;font-weight:800;color:var(--teal);background:#e9f2f1;width:25px;height:25px;border-radius:7px;font-size:.78rem}
+    .answer.is-correct{border:1.5px solid #65ac85;background:var(--good-bg);color:var(--good)}
+    .answer.is-wrong{border:1.5px solid #da8d90;background:var(--bad-bg);color:var(--bad)}
+    .answer:disabled{opacity:1}
+    .answer:disabled:not(.is-correct):not(.is-wrong){color:#71818a;background:#fafafa}
+    .feedback{display:none;border-radius:10px;padding:11px 12px;font-size:.9rem;line-height:1.5;margin-top:auto}
+    .feedback.visible{display:block}
+    .feedback.success{background:var(--good-bg);color:var(--good)}
+    .feedback.error{background:var(--bad-bg);color:var(--bad)}
+    .feedback strong{display:block}
+    .q-card.answered .q-status{background:#e3f3eb;color:var(--good)}
+    .q-card.answered.incorrect .q-status{background:#ffe8e8;color:var(--bad)}
+    .section-break{height:1px;background:var(--outline);margin:43px 0 5px}
+    .glossary-card{padding:25px;background:var(--white);border:1px solid var(--outline);box-shadow:var(--shadow);border-radius:17px}
+    .glossary-card h3{font-size:1.33rem;letter-spacing:-.02em;margin:0 0 4px}
+    .glossary-card>p{color:var(--muted);margin:0 0 19px}
+    .word-bank{border:1px dashed #9abdbd;border-radius:12px;background:#f4faf8;padding:14px 16px;margin-bottom:19px}
+    .word-bank strong{display:block;color:var(--teal-dark);font-size:.85rem;margin-bottom:8px}
+    .word-pills{display:flex;gap:7px;flex-wrap:wrap}
+    .word-pill{padding:4px 10px;border-radius:50px;background:#fff;border:1px solid #cddfdb;font-size:.9rem;font-weight:650}
+    .gap-list,.match-list{display:grid;gap:10px}
+    .gap-item,.match-item{border:1px solid var(--outline);border-radius:12px;padding:14px 15px;background:#fcfdfd}
+    .gap-row,.match-row{display:flex;gap:11px;align-items:center;flex-wrap:wrap}
+    .item-num{color:var(--teal);font-size:.85rem;font-weight:850;min-width:23px}
+    .gap-sentence{flex:1 1 350px;min-width:180px}
+    .gap-control{display:flex;gap:7px;align-items:center;flex:0 1 300px;min-width:190px}
+    .gap-input{min-width:0;width:100%;border:1px solid #b8ced1;border-radius:9px;padding:9px 11px;background:#fff}
+    .gap-item .button{padding:9px 12px}
+    .item-feedback{display:none;margin:9px 0 0 34px;font-size:.87rem;line-height:1.5}
+    .item-feedback.visible{display:block}
+    .item-feedback.success{color:var(--good)}
+    .item-feedback.error{color:var(--bad)}
+    .gap-item.done,.match-item.done{border-color:#a4cdbc;background:#f8fffa}
+    .gap-item.done.wrong,.match-item.done.wrong{border-color:#e4b1b0;background:#fffbfb}
+    .match-term{font-weight:800;min-width:140px;flex:1 1 155px}
+    .match-select{flex:2 1 340px;max-width:100%;min-width:180px;border:1px solid #b8ced1;border-radius:9px;background:white;padding:10px;color:var(--ink)}
+    .glossary-score{color:var(--muted);font-size:.9rem;margin:16px 0 0;font-weight:650}
+    .completed-banner{display:none;margin-top:20px;border-radius:15px;background:#e8f7ed;border:1px solid #a4cebb;color:#195e40;padding:17px 20px}
+    .completed-banner.visible{display:block}
+    .completed-banner strong{display:block;font-size:1.1rem}
+    .end-actions{display:flex;justify-content:center;margin-top:30px}
+    footer{border-top:1px solid #d8e3e3;background:#eaf1f0;text-align:center;padding:27px 15px;color:#345561;font-weight:650;font-size:.91rem}
+    footer .dash{color:var(--teal);padding:0 6px}
+    @media (max-width:780px){.quiz-grid{grid-template-columns:1fr}.section-top{align-items:flex-start;flex-direction:column}.score-panel{width:100%}.hero-mark{right:-20px;bottom:-3px}.gap-sentence{flex-basis:100%}.gap-control{flex:1 1 100%}}
+    @media (max-width:520px){.container{width:min(100% - 26px,1100px)}.masthead .hero{padding:35px 0 45px}.course{font-size:.76rem;letter-spacing:.09em}.type-badge{font-size:.73rem;padding:5px 9px}.topline{padding-top:23px}.intro-head{padding:19px}.reading-details summary{padding:14px 19px}.passage{padding:0 19px 21px}.q-card,.glossary-card{padding:17px}.toolbar-inner{justify-content:center}.jump-links{justify-content:center}.section-top{margin-top:33px}.item-feedback{margin-left:0}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+    @media print{body{background:white;font-size:12px}.masthead{print-color-adjust:exact;-webkit-print-color-adjust:exact}.toolbar,.end-actions,.answer:disabled{display:none!important}.container{width:100%}.hero{padding:20px 0}.intro-card,.q-card,.glossary-card{box-shadow:none}.quiz-grid{grid-template-columns:1fr 1fr}.q-card,.gap-item,.match-item{break-inside:avoid}.reading-details:not([open])>.passage{display:block}main{padding:15px 0} .section-break{margin:20px 0 0} .score-panel{display:none}footer{background:#fff}}
+  .greek{color:#315e69;font-size:.92rem;font-weight:600}.support-note{background:#e8f6f3;padding:12px 16px;border-radius:10px;margin:12px 0}.word-pill{border-radius:10px}.gap-control{flex-basis:390px}.gap-input{color:var(--ink)} .mini-glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:7px;margin:12px 0}.mini-glossary div{padding:7px 10px;border:1px solid var(--outline);border-radius:8px;background:white}</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="container topline">
+      <div class="course">A Class English <span class="dash">-</span> Unit 3</div>
+      <div class="type-badge">Interactive Learning Activity</div>
+    </div>
+    <div class="container hero">
+      <p class="eyebrow">Reading • Understanding • Vocabulary</p>
+      <h1>The History of the Telephone</h1>
+      <p class="subheading">Read the text, test your understanding, and practise the key words. Feedback appears as soon as you answer each question.</p>
+      <span class="hero-mark" aria-hidden="true">☎</span>
+    </div>
+  </header>
+
+  <nav class="toolbar" aria-label="Activity navigation">
+    <div class="container toolbar-inner">
+      <div class="jump-links">
+        <a href="#reading">Reading text</a>
+        <a href="#comprehension">Comprehension</a>
+        <a href="#vocabulary">Vocabulary</a>
+        <a href="#glossary-gap">Gap-filling</a>
+        <a href="#glossary-match">Matching</a>
+      </div>
+      <button class="button" type="button" id="printButton">Print worksheet</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="intro-card" id="reading" aria-labelledby="readingTitle">
+      <div class="intro-head">
+        <div><h2 id="readingTitle">Your reading passage</h2><p>Refer to the text whenever you need to.</p></div>
+        <span aria-hidden="true" style="font-size:1.8rem">📖</span>
+      </div>
+      <details class="reading-details" open>
+        <summary>Show / hide the reading text</summary>
+        <div class="passage"><details class="support-note"><summary>Key words / Βασικό λεξιλόγιο</summary><div class="mini-glossary"><div><strong>afar</strong> — από μακριά</div><div><strong>conveys</strong> — μεταφέρει / μεταδίδει</div><div><strong>semaphore</strong> — σηματοδότηση με σημαίες</div><div><strong>established</strong> — καθιερωμένος</div><div><strong>dot-and-dash</strong> — τελείες και παύλες</div><div><strong>transmitting</strong> — μετάδοση</div><div><strong>experiment</strong> — πείραμα</div><div><strong>utters</strong> — προφέρει / λέει</div><div><strong>enabled</strong> — έδωσε τη δυνατότητα</div><div><strong>capable of</strong> — ικανός να</div><div><strong>varying</strong> — μεταβαλλόμενος</div><div><strong>membrane</strong> — μεμβράνη</div><div><strong>audible</strong> — ακουστός</div><div><strong>pioneers</strong> — πρωτοπόροι</div><div><strong>accomplishment</strong> — επίτευγμα</div><div><strong>transmit</strong> — μεταδίδω</div><div><strong>receiver</strong> — δέκτης</div><div><strong>telegraph</strong> — τηλέγραφος</div><div><strong>convey</strong> — μεταφέρω / μεταδίδω</div><div><strong>currents</strong> — ρεύματα</div><div><strong>utter</strong> — προφέρω / λέω</div><div><strong>limited</strong> — περιορισμένος</div><div><strong>reproduce</strong> — αναπαράγω</div><div><strong>frequencies</strong> — συχνότητες</div><div><strong>electrically</strong> — με τη χρήση ηλεκτρισμού</div><div><strong>capable</strong> — ικανός</div><div><strong>transmitter</strong> — πομπός</div><div><strong>device</strong> — συσκευή</div><div><strong>wire</strong> — καλώδιο</div><div><strong>invent</strong> — εφευρίσκω</div><div><strong>assistant</strong> — βοηθός</div><div><strong>speech</strong> — ομιλία</div></div></details>
+          <p>On March 10, 1876, in Boston, Massachusetts, Alexander Graham Bell invented the telephone. His notebook entry of 10 March 1876 describes his successful experiment with the telephone. Speaking through the instrument to his assistant Thomas A. Watson, a young electrician, in the next room, Bell utters these famous first words:</p>
+          <blockquote>“Mr. Watson – come here – I want to see you.”</blockquote>
+          <p>“Telephone” comes from the Greek word “tele”, meaning “from afar”, and “phone”, meaning “voice” or “voice sound”. Generally, a telephone is any device that conveys sound over a distance.</p>
+          <p>Man has always wanted to communicate from afar. People have used smoke signals, mirrors, jungle drums, carrier pigeons and semaphore to get a message from one point to another. But a phone was something new. A real telephone could not be invented until the electrical age began. The electrical principles needed to build a telephone were known in 1831, but it wasn’t until 1854 that Bourseul suggested transmitting speech electrically. It wasn’t until 22 years later, in 1876, that the idea became a reality.</p>
+          <p>Bell’s success with the telephone came as a direct result of his attempts to improve the telegraph. When he began experimenting with electrical signals, the telegraph had been an established means of communication for some 30 years, but with its dot-and-dash Morse code, it was limited to receiving and sending one message at a time.</p>
+          <p>Bell’s knowledge of the nature of sound and his understanding of music enabled him to think of the possibility of transmitting multiple messages over the same wire at the same time. Of course, he based his knowledge on the findings of other scientists and inventors. The telephone is a shared accomplishment among many pioneers, although it was Alexander Graham Bell who built a working transmitter with a membrane capable of varying electronic currents and a receiver that would reproduce these variations in audible frequencies.</p>
+        </div>
+      </details>
+    </section>
+
+    <div class="instruction-strip"><strong>How it works:</strong> Select an answer for each multiple-choice question. Your answer is checked immediately, and the correct response is shown. For gap-filling, choose a word and use <strong>Check</strong>, and select a definition for matching. The entire activity works offline.</div>
+
+    <section id="comprehension" aria-labelledby="comprehensionTitle">
+      <div class="section-top"><div><span class="section-kicker">Part 1 · Questions 1–15</span><h2 id="comprehensionTitle">Reading comprehension</h2><p>Choose the best answer from the text. / Διάλεξε τη σωστή απάντηση με βάση το κείμενο.</p></div><div class="score-panel" aria-label="Reading and vocabulary score"><div><div class="score-number" id="answeredCount">0 / 30</div><div class="score-caption">questions answered</div></div><div><div class="score-number" id="correctCount">0</div><div class="score-caption">correct answers</div></div></div></div>
+      <div class="progress-track" role="progressbar" aria-label="Questions completed" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" id="quizProgress"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="quiz-grid" id="comprehensionQuestions"></div>
+    </section>
+
+    <section id="vocabulary" aria-labelledby="vocabularyTitle">
+      <div class="section-top"><div><span class="section-kicker">Part 2 · Questions 16–30</span><h2 id="vocabularyTitle">Vocabulary in context</h2><p>Choose the correct meaning. Use the Greek translation as a clue. / Διάλεξε τη σωστή σημασία.</p></div></div>
+      <div class="support-note" lang="el">Βοήθεια: η ελληνική μετάφραση δίπλα σε κάθε λέξη σε βοηθά να βρεις τη σωστή αγγλική σημασία.</div><div class="quiz-grid" id="vocabularyQuestions"></div>
+      <div class="completed-banner" id="quizComplete" role="status" aria-live="polite"></div>
+    </section>
+
+    <div class="section-break" aria-hidden="true"></div>
+    <section id="glossary-gap" aria-labelledby="gapTitle">
+      <div class="section-top"><div><span class="section-kicker">Part 3 · Glossary activity 1</span><h2 id="gapTitle">Gap-filling</h2><p>Choose the missing word. Use the bilingual word bank to help you.</p></div></div>
+      <div class="glossary-card">
+        <div class="support-note" lang="el">Διάβασε τις λέξεις και την ελληνική σημασία τους. Σε κάθε κενό διάλεξε μία από τις τρεις λέξεις. Πάτησε Check για έλεγχο.</div><div class="word-bank"><strong>WORD BANK / ΛΕΞΙΛΟΓΙΟ</strong><div class="word-pills" id="wordBank"></div></div>
+        <div class="gap-list" id="gapQuestions"></div>
+        <p class="glossary-score" id="gapScore" aria-live="polite">0 of 10 gaps checked · 0 correct</p>
+      </div>
+    </section>
+
+    <section id="glossary-match" aria-labelledby="matchTitle">
+      <div class="section-top"><div><span class="section-kicker">Part 4 · Glossary activity 2</span><h2 id="matchTitle">Match the words and definitions</h2><p>Choose the correct English meaning. / Αντιστοίχισε κάθε λέξη με τη σωστή αγγλική σημασία.</p></div></div>
+      <div class="glossary-card">
+        <div class="match-list" id="matchQuestions"></div>
+        <p class="glossary-score" id="matchScore" aria-live="polite">0 of 10 matches checked · 0 correct</p>
+        <div class="completed-banner" id="allComplete" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <div class="end-actions"><button class="button button-primary" type="button" id="resetButton">Start again · Reset all answers</button></div>
+  </main>
+
+  <footer>Evangelia Domvrou <span class="dash">-</span> Teacher of English Language and Literature</footer>
+
+  <script>
+    'use strict';
+    const questions = [
+      // Part 1: content comprehension (15)
+      {section:'comprehension',q:'On which date did Bell record his successful telephone experiment?',options:['10 March 1876','10 March 1831','22 March 1854','10 March 1906'],answer:0,why:'The passage dates Bell’s successful experiment to 10 March 1876.'},
+      {section:'comprehension',q:'In which city did Bell’s famous experiment take place?',options:['New York','London','Boston','Philadelphia'],answer:2,why:'The text identifies Boston, Massachusetts.'},
+      {section:'comprehension',q:'Who was the person listening to Bell’s first words through the telephone?',options:['Bourseul','Thomas A. Watson','Samuel Morse','A university student'],answer:1,why:'Bell spoke to his assistant, Thomas A. Watson.'},
+      {section:'comprehension',q:'Where was Thomas A. Watson when Bell spoke to him?',options:['In another city','Outside the building','In the next room','On a train'],answer:2,why:'The assistant was in the next room.'},
+      {section:'comprehension',q:'What did Bell ask Watson to do?',options:['Write down a message','Come to him','Send a telegram','Turn off the equipment'],answer:1,why:'Bell said, “Mr. Watson – come here – I want to see you.”'},
+      {section:'comprehension',q:'What do the Greek roots of “telephone” mean?',options:['Light and distance','Writing and code','Electricity and message','From afar and voice'],answer:3,why:'“Tele” means “from afar” and “phone” means “voice”.'},
+      {section:'comprehension',q:'Which of these was used to send messages before the telephone?',options:['Carrier pigeons','Email','Mobile apps','Satellites'],answer:0,why:'The text lists carrier pigeons along with smoke signals, mirrors, drums and semaphore.'},
+      {section:'comprehension',q:'According to the passage, what made a real telephone possible?',options:['The invention of radio','The beginning of the electrical age','The discovery of satellites','The invention of television'],answer:1,why:'The telephone could not be invented until the electrical age began.'},
+      {section:'comprehension',q:'By what year were the electrical principles needed for a telephone known?',options:['1876','1854','1831','1900'],answer:2,why:'The passage states that these principles were known in 1831.'},
+      {section:'comprehension',q:'Who suggested transmitting speech electrically in 1854?',options:['Thomas A. Watson','Alexander Graham Bell','Samuel Morse','Bourseul'],answer:3,why:'Bourseul proposed transmitting speech electrically in 1854.'},
+      {section:'comprehension',q:'Bell’s telephone work grew directly out of his attempts to improve which device?',options:['The telegraph','The gramophone','The camera','The radio'],answer:0,why:'The text says Bell’s success resulted from attempts to improve the telegraph.'},
+      {section:'comprehension',q:'What limitation did the telegraph have at the time?',options:['It used no code','It could send only one message at a time','It could transmit only music','It worked only in daylight'],answer:1,why:'The dot-and-dash Morse-code telegraph sent or received one message at a time.'},
+      {section:'comprehension',q:'What possibility did Bell imagine because of his knowledge of sound and music?',options:['Sending pictures by radio','Stopping the use of wires','Transmitting several messages on one wire at the same time','Replacing electricity with light'],answer:2,why:'He imagined multiple messages being carried over the same wire simultaneously.'},
+      {section:'comprehension',q:'What was the role of the membrane in Bell’s transmitter?',options:['To write Morse code','To vary electrical currents','To store messages on paper','To carry messages by light'],answer:1,why:'The passage describes a transmitter with a membrane capable of varying currents.'},
+      {section:'comprehension',q:'Why does the passage call the telephone a “shared accomplishment”?',options:['It had been completed by Watson alone','It was invented without previous scientific work','Everyone had a telephone in 1876','Bell built on the discoveries of other scientists and inventors'],answer:3,why:'The passage credits many pioneers, while recognizing Bell’s working transmitter and receiver.'},
+      // Part 2: vocabulary (15)
+      {section:'vocabulary',q:'In the passage, “afar” means…',options:['At a great distance','At a high speed','Very quietly','With difficulty'],answer:0,why:'“Afar” means far away or from a distance.'},
+      {section:'vocabulary',q:'The verb “conveys” is closest in meaning to…',options:['Forgets','Carries or communicates','Changes into music','Stops'],answer:1,why:'A device that conveys sound carries or communicates sound.'},
+      {section:'vocabulary',q:'“Semaphore” is a way of communicating by…',options:['Sending emails','Using visual signs or flags','Speaking into a microphone','Writing a diary'],answer:1,why:'Semaphore is a system of visual signalling, often using flags or arm positions.'},
+      {section:'vocabulary',q:'An “established” means of communication is one that is…',options:['Completely unknown','Used for the first time','Already used by many people','Impossible to operate'],answer:2,why:'The telegraph had already been in use for many years.'},
+      {section:'vocabulary',q:'“Dot-and-dash” describes…',options:['Short and long signals in Morse code','The shape of telephone buttons','The colours of electric wires','A kind of musical instrument'],answer:0,why:'Morse code represents information using dots and dashes.'},
+      {section:'vocabulary',q:'“Transmitting” speech means…',options:['Recording it in a notebook','Forgetting what was said','Sending it from one place to another','Translating it into Greek'],answer:2,why:'To transmit is to send or carry a signal or information.'},
+      {section:'vocabulary',q:'A scientific “experiment” is…',options:['An informal greeting','A test to learn something','An old-fashioned letter','A musical instrument'],answer:1,why:'Bell’s experiment tested and demonstrated that his device worked.'},
+      {section:'vocabulary',q:'The verb “utters” means…',options:['Builds a machine','Says words aloud','Writes very quickly','Listens carefully'],answer:1,why:'Bell “utters” his first words: he says them aloud.'},
+      {section:'vocabulary',q:'“Enabled” is closest in meaning to…',options:['Prevented','Forgot','Made possible','Disproved'],answer:2,why:'Bell’s knowledge enabled him to imagine a new possibility.'},
+      {section:'vocabulary',q:'If a device is “capable of” doing something, it is…',options:['Unable to do it','Designed only for decoration','Ready to be thrown away','Able to do it'],answer:3,why:'“Capable of” means having the ability to do something.'},
+      {section:'vocabulary',q:'In “varying electronic currents”, “varying” means…',options:['Changing','Hiding','Freezing','Removing'],answer:0,why:'The membrane changed the currents in response to sound.'},
+      {section:'vocabulary',q:'A “membrane” is best described here as…',options:['A coded message','A thin flexible layer','A distant city','A group of scientists'],answer:1,why:'A membrane is a thin flexible sheet that can vibrate.'},
+      {section:'vocabulary',q:'“Audible” frequencies are frequencies that…',options:['Cannot exist','Can be heard','Can only be seen','Are written in Morse code'],answer:1,why:'“Audible” means possible to hear.'},
+      {section:'vocabulary',q:'In this context, “pioneers” are people who…',options:['Refuse new ideas','Are among the first to develop new ideas','Only copy someone else’s inventions','Work exclusively with pigeons'],answer:1,why:'Pioneers lead early developments or discoveries in an area.'},
+      {section:'vocabulary',q:'An “accomplishment” is…',options:['An achievement','A long-distance call','A set of wires','An electrical failure'],answer:0,why:'An accomplishment is something successfully achieved.'}
+    ];
+
+    const gaps = [
+      {sentence:'To ______ a message means to send it from one place to another.',answer:'transmit'},
+      {sentence:'Bell’s transmitter had a thin ______ that moved in response to sound.',answer:'membrane'},
+      {sentence:'The ______ turns received electrical variations into sound.',answer:'receiver'},
+      {sentence:'Before the telephone, the ______ was used to send coded messages.',answer:'telegraph'},
+      {sentence:'People can send visual signals using ______.',answer:'semaphore'},
+      {sentence:'Early inventors who opened the way for new technology were ______.',answer:'pioneers'},
+      {sentence:'A sound that can be heard is ______.',answer:'audible'},
+      {sentence:'Smoke signals could ______ messages over a distance.',answer:'convey'},
+      {sentence:'The transmitter created variations in electrical ______.',answer:'currents'},
+      {sentence:'Bell wrote about his successful ______ in his notebook.',answer:'experiment'}
+    ];
+
+    const matches = [
+      {term:'afar',definition:'From a long distance'},
+      {term:'utter',definition:'To say something aloud'},
+      {term:'established',definition:'Already used by many people'},
+      {term:'limited',definition:'Not able to do everything'},
+      {term:'dot-and-dash',definition:'Made up of short and long coded signals'},
+      {term:'reproduce',definition:'To produce or create again'},
+      {term:'frequencies',definition:'How often something vibrates'},
+      {term:'electrically',definition:'By using electricity'},
+      {term:'capable',definition:'Having the ability to do something'},
+      {term:'accomplishment',definition:'Something done successfully'}
+    ];
+
+    const greek = {"afar": "από μακριά", "conveys": "μεταφέρει / μεταδίδει", "semaphore": "σηματοδότηση με σημαίες", "established": "καθιερωμένος", "dot-and-dash": "τελείες και παύλες", "transmitting": "μετάδοση", "experiment": "πείραμα", "utters": "προφέρει / λέει", "enabled": "έδωσε τη δυνατότητα", "capable_of": "ικανός να", "varying": "μεταβαλλόμενος", "membrane": "μεμβράνη", "audible": "ακουστός", "pioneers": "πρωτοπόροι", "accomplishment": "επίτευγμα", "transmit": "μεταδίδω", "receiver": "δέκτης", "telegraph": "τηλέγραφος", "convey": "μεταφέρω / μεταδίδω", "currents": "ρεύματα", "utter": "προφέρω / λέω", "limited": "περιορισμένος", "reproduce": "αναπαράγω", "frequencies": "συχνότητες", "electrically": "με τη χρήση ηλεκτρισμού", "capable": "ικανός", "transmitter": "πομπός", "device": "συσκευή", "wire": "καλώδιο", "invent": "εφευρίσκω", "assistant": "βοηθός", "speech": "ομιλία"};
+    const readingGreek = ["Πότε έγινε το επιτυχημένο πείραμα του Bell;", "Σε ποια πόλη έγινε το πείραμα;", "Ποιος άκουσε τα πρώτα λόγια του Bell;", "Πού βρισκόταν ο Watson;", "Τι ζήτησε ο Bell από τον Watson;", "Τι σημαίνουν οι ελληνικές ρίζες της λέξης telephone;", "Πώς έστελναν μηνύματα πριν από το τηλέφωνο;", "Τι έκανε δυνατή την εφεύρεση του τηλεφώνου;", "Πότε ήταν γνωστές οι απαραίτητες αρχές του ηλεκτρισμού;", "Ποιος πρότεινε την ηλεκτρική μετάδοση της ομιλίας;", "Ποια συσκευή ήθελε να βελτιώσει ο Bell;", "Ποιος ήταν ο περιορισμός του τηλεγράφου;", "Τι σκέφτηκε ο Bell χάρη στις γνώσεις του για τον ήχο και τη μουσική;", "Ποιος ήταν ο ρόλος της μεμβράνης στον πομπό;", "Γιατί το τηλέφωνο θεωρείται συλλογικό επίτευγμα;"];
+    const vocabKeys = ["afar", "conveys", "semaphore", "established", "dot-and-dash", "transmitting", "experiment", "utters", "enabled", "capable_of", "varying", "membrane", "audible", "pioneers", "accomplishment"];
+    const gapChoices = [["transmit","receiver","audible"],["currents","membrane","telegraph"],["receiver","experiment","pioneers"],["membrane","semaphore","telegraph"],["semaphore","currents","receiver"],["experiment","pioneers","audible"],["convey","telegraph","audible"],["convey","membrane","receiver"],["pioneers","currents","semaphore"],["telegraph","audible","experiment"]];
+    const answered = Array(questions.length).fill(null);
+    const gapAnswers = Array(gaps.length).fill(null);
+    const matchAnswers = Array(matches.length).fill(null);
+    const letters = ['A','B','C','D'];
+    const $ = id => document.getElementById(id);
+    function make(tag, cls, text) {
+      const el=document.createElement(tag);
+      if(cls) el.className=cls;
+      if(text!==undefined) el.textContent=text;
+      return el;
+    }
+    function setFeedback(el,correct,detail) {
+      el.className='feedback visible '+(correct?'success':'error');
+      const leading=make('strong',null,correct?'✓ Correct!':'✗ Not quite.');
+      el.replaceChildren(leading,document.createTextNode(detail));
+    }
+    function renderQuestion(item,index) {
+      const card=make('article','q-card');card.id='question-'+(index+1);
+      const head=make('div','q-head');
+      head.append(make('span','q-number','Question '+String(index+1).padStart(2,'0')));
+      const status=make('span','q-status','Not answered');head.append(status);
+      const title=make('h3',null,item.q);title.id='question-title-'+index;
+      const answersEl=make('div','answers');answersEl.setAttribute('role','group');answersEl.setAttribute('aria-labelledby',title.id);
+      const feedback=make('div','feedback');feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
+      item.options.forEach((option,choice)=>{
+        const button=make('button','answer');button.type='button';
+        const letter=make('span','letter',letters[choice]);letter.setAttribute('aria-hidden','true');
+        const label=make('span',null,option);button.append(letter,label);
+        button.setAttribute('aria-label',letters[choice]+'. '+option);
+        button.addEventListener('click',()=>{
+          if(answered[index]!==null)return;
+          answered[index]=choice;
+          const correct=choice===item.answer;
+          card.classList.add('answered');if(!correct)card.classList.add('incorrect');
+          status.textContent=correct?'✓ Correct':'✗ Incorrect';
+          [...answersEl.children].forEach((btn,optionIndex)=>{
+            btn.disabled=true;
+            if(optionIndex===item.answer)btn.classList.add('is-correct');
+            if(optionIndex===choice&&!correct)btn.classList.add('is-wrong');
+          });
+          setFeedback(feedback,correct,(correct?' ':' Correct answer: '+letters[item.answer]+'. '+item.options[item.answer]+'. ')+item.why);
+          updateQuizScore();
+        });
+        answersEl.append(button);
+      });
+      card.append(head,title); if(item.section==='vocabulary'){card.append(make('div','greek', 'Ελληνικά: '+greek[vocabKeys[index-15]]));} else {card.append(make('div','greek',readingGreek[index]));} card.append(answersEl,feedback);
+      return card;
+    }
+    function updateQuizScore(){
+      const total=answered.filter(x=>x!==null).length;
+      const correct=answered.filter((x,i)=>x===questions[i].answer).length;
+      $('answeredCount').textContent=total+' / '+questions.length;
+      $('correctCount').textContent=correct;
+      $('progressFill').style.width=(100*total/questions.length)+'%';
+      $('quizProgress').setAttribute('aria-valuenow',String(total));
+      const summary=$('quizComplete');
+      if(total===questions.length){
+        summary.classList.add('visible');summary.replaceChildren(make('strong',null,'Reading and vocabulary completed!'),document.createTextNode('Your score: '+correct+' / 30. Continue with the two glossary activities below.'));
+      } else summary.classList.remove('visible');
+      updateAllComplete();
+    }
+    function normalized(value){return value.normalize('NFKC').trim().toLocaleLowerCase('en').replace(/\s+/g,' ').replace(/^[.!?,;:]+|[.!?,;:]+$/g,'');}
+    function renderGap(gap,index){
+      const wrapper=make('div','gap-item');
+      const row=make('div','gap-row');
+      const num=make('span','item-num',String(index+1)+'.');
+      const sentence=make('label','gap-sentence',gap.sentence);sentence.htmlFor='gap-input-'+index;
+      const controls=make('div','gap-control');
+      const input=make('select','gap-input');input.id='gap-input-'+index; const empty=make('option',null,'Choose / Επίλεξε…');empty.value='';input.append(empty);gapChoices[index].forEach(w=>{const o=make('option',null,w+' — '+greek[w]);o.value=w;input.append(o);});
+      input.setAttribute('aria-label','Missing word for sentence '+(index+1));
+      const button=make('button','button button-primary','Check');button.type='button';
+      const feedback=make('div','item-feedback');feedback.id='gap-feedback-'+index;feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
+      input.setAttribute('aria-describedby',feedback.id);
+      const check=()=>{
+        if(gapAnswers[index]!==null)return;
+        if(!input.value.trim()){input.focus();return;}
+        const correct=normalized(input.value)===normalized(gap.answer);
+        gapAnswers[index]=correct;wrapper.classList.add('done');
+        if(!correct)wrapper.classList.add('wrong');
+        input.disabled=true;button.disabled=true;
+        feedback.className='item-feedback visible '+(correct?'success':'error');
+        feedback.textContent=correct?'✓ Correct!':'✗ Correct answer: '+gap.answer+'.';
+        updateGlossaryScores();
+      };
+      button.addEventListener('click',check);
+      input.addEventListener('keydown',ev=>{if(ev.key==='Enter'){ev.preventDefault();check();}});
+      controls.append(input,button);row.append(num,sentence,controls);wrapper.append(row,feedback);
+      return wrapper;
+    }
+    // Deliberately mix the definitions so that dropdown positions do not give away answers.
+    const definitionOrder=[4,1,8,0,6,9,2,7,3,5];
+    function renderMatch(item,index){
+      const wrapper=make('div','match-item');
+      const row=make('div','match-row');
+      const num=make('span','item-num',String(index+1)+'.');
+      const term=make('label','match-term',item.term+' — '+greek[item.term]);term.htmlFor='match-select-'+index;
+      const select=make('select','match-select');select.id='match-select-'+index;
+      const placeholder=make('option',null,'Choose a definition…');placeholder.value='';select.append(placeholder);
+      definitionOrder.filter(defIndex=>[index,(index+3)%10,(index+7)%10].includes(defIndex)).forEach(defIndex=>{const option=make('option',null,matches[defIndex].definition);option.value=String(defIndex);select.append(option);});
+      const feedback=make('div','item-feedback');feedback.id='match-feedback-'+index;feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');select.setAttribute('aria-describedby',feedback.id);
+      select.addEventListener('change',()=>{
+        if(select.value===''||matchAnswers[index]!==null)return;
+        const correct=Number(select.value)===index;
+        matchAnswers[index]=correct;select.disabled=true;wrapper.classList.add('done');
+        if(!correct)wrapper.classList.add('wrong');
+        feedback.className='item-feedback visible '+(correct?'success':'error');
+        feedback.textContent=correct?'✓ Correct!':'✗ Correct definition: '+item.definition+'.';
+        updateGlossaryScores();
+      });
+      row.append(num,term,select);wrapper.append(row,feedback);return wrapper;
+    }
+    function updateGlossaryScores(){
+      const doneG=gapAnswers.filter(x=>x!==null).length,goodG=gapAnswers.filter(x=>x===true).length;
+      const doneM=matchAnswers.filter(x=>x!==null).length,goodM=matchAnswers.filter(x=>x===true).length;
+      $('gapScore').textContent=doneG+' of 10 gaps checked · '+goodG+' correct';
+      $('matchScore').textContent=doneM+' of 10 matches checked · '+goodM+' correct';
+      updateAllComplete();
+    }
+    function updateAllComplete(){
+      const allDone=answered.every(x=>x!==null)&&gapAnswers.every(x=>x!==null)&&matchAnswers.every(x=>x!==null);
+      const banner=$('allComplete');
+      banner.classList.toggle('visible',allDone);
+      if(allDone){
+        const quizCorrect=answered.filter((x,i)=>x===questions[i].answer).length;
+        const gapsCorrect=gapAnswers.filter(x=>x===true).length;
+        const matchesCorrect=matchAnswers.filter(x=>x===true).length;
+        banner.replaceChildren(make('strong',null,'All activities completed!'),document.createTextNode('Final result: '+(quizCorrect+gapsCorrect+matchesCorrect)+' / 50 correct ('+quizCorrect+'/30 questions, '+gapsCorrect+'/10 gaps, '+matchesCorrect+'/10 matches). Great work completing the worksheet!'));
+      }
+    }
+    function renderAll(){
+      $('comprehensionQuestions').replaceChildren(...questions.slice(0,15).map((q,i)=>renderQuestion(q,i)));
+      $('vocabularyQuestions').replaceChildren(...questions.slice(15).map((q,i)=>renderQuestion(q,i+15)));
+      $('wordBank').replaceChildren(...['semaphore','convey','experiment','currents','telegraph','pioneers','transmit','audible','receiver','membrane'].map(w=>make('span','word-pill',w+' — '+greek[w])));
+      $('gapQuestions').replaceChildren(...gaps.map(renderGap));
+      $('matchQuestions').replaceChildren(...matches.map(renderMatch));
+      updateQuizScore();updateGlossaryScores();
+    }
+    $('printButton').addEventListener('click',()=>window.print());
+    $('resetButton').addEventListener('click',()=>{
+      answered.fill(null);gapAnswers.fill(null);matchAnswers.fill(null);
+      renderAll();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+    renderAll();
+  </script>
+</body>
+</html>
